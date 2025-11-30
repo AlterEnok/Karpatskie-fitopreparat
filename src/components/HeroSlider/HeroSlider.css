@@ -1,0 +1,272 @@
+body[data-slide="0"] .hero__content {
+    color: #ffffff !important;
+}
+
+body[data-slide="0"] .hero__bottomText {
+    color: #3d5f3e !important;
+    text-shadow: none;
+}
+
+
+
+body[data-slide="1"] .hero__content,
+body[data-slide="1"] .hero__bottomText {
+    color: #ffffff !important;
+}
+
+
+
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: clamp(900px, 115vh, 116vh);
+    overflow: hidden;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+.hero__sliderWrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 45px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+}
+
+.heroSwiper,
+.heroSwiper .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* BG */
+.hero__bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    backface-visibility: hidden;
+}
+
+
+/* ----------------------------------------------------
+   TEXT CENTER
+---------------------------------------------------- */
+
+.hero__content {
+    position: absolute;
+    top: 10%;
+    /* поднял выше */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 15;
+    width: 90%;
+}
+
+.hero__title {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 122%;
+    letter-spacing: 0.15em;
+}
+
+.hero__subtitle {
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-size: 32px;
+    line-height: 144%;
+    position: relative;
+    top: -45px;
+    letter-spacing: 0.09em;
+}
+
+
+/* ----------------------------------------------------
+   BOTTOM LEFT TEXT
+---------------------------------------------------- */
+
+.hero__bottomText {
+    position: absolute;
+    left: 60px;
+    bottom: 15px;
+    z-index: 20;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 144%;
+    letter-spacing: 0.15em;
+    max-width: 960px;
+    font-family: "Jost", sans-serif;
+}
+
+
+/* ----------------------------------------------------
+   CTA BUTTON
+---------------------------------------------------- */
+
+.hero__cta {
+    position: absolute;
+    right: 30px;
+    bottom: 12px;
+    z-index: 20;
+}
+
+.hero__cta-btn {
+    padding: 18px 46px;
+    background: #fff;
+    color: #2f5e2f;
+    border-radius: 50px;
+    border: 3px solid #2f5e2f;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 118%;
+    letter-spacing: 0.07em;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero__cta-btn:hover {
+    background: #2f5e2f;
+    color: #fff;
+    border: 3px solid #e2e6e2;
+}
+
+
+@media (max-width: 1024px) {
+    .hero {
+        height: 90vh;
+    }
+
+    .hero__title {
+        font-size: 50px;
+    }
+
+    .hero__subtitle {
+        font-size: 26px;
+        top: -35px;
+    }
+
+    .hero__bottomText {
+        font-size: 26px;
+        left: 40px;
+        max-width: 680px;
+    }
+
+    .hero__cta-btn {
+        font-size: 26px;
+        padding: 14px 34px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: 750px;
+    }
+
+    .hero__content {
+        top: 16%;
+        width: 92%;
+    }
+
+    .hero__title {
+        font-size: 38px;
+        letter-spacing: 0.1em;
+    }
+
+    .hero__subtitle {
+        font-size: 20px;
+        top: -20px;
+    }
+
+    .hero__bottomText {
+        font-size: 20px;
+        left: 20px;
+        max-width: 90%;
+        bottom: 25px;
+    }
+
+    .hero__cta {
+        right: 20px;
+        bottom: 25px;
+    }
+
+    .hero__cta-btn {
+        font-size: 20px;
+        padding: 12px 28px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero {
+        height: 640px;
+        border-radius: 26px;
+    }
+
+    .hero__content {
+        top: 12%;
+    }
+
+    .hero__title {
+        font-size: 28px;
+        letter-spacing: 0.06em;
+    }
+
+    .hero__subtitle {
+        font-size: 14px;
+        top: -10px;
+    }
+
+    .hero__bottomText {
+        font-size: 13px;
+        left: 14px;
+        right: 14px;
+        bottom: 22px;
+        max-width: 100%;
+    }
+
+    .hero__cta {
+        right: 14px;
+        bottom: 22px;
+    }
+
+    .hero__cta-btn {
+        font-size: 10px;
+        padding: 35px 0px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 390px) {
+
+    .hero {
+        height: 580px;
+    }
+
+    .hero__title {
+        font-size: 24px;
+    }
+
+    .hero__subtitle {
+        font-size: 12px;
+    }
+
+    .hero__bottomText {
+        font-size: 13px;
+        bottom: 20px;
+    }
+
+    .hero__cta-btn {
+        font-size: 9px;
+        padding: 35px 0px;
+        position: relative;
+        left: 12px;
+    }
+}

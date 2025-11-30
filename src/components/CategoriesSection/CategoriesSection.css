@@ -1,0 +1,132 @@
+.categories {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.categories__container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Уменьшено: стало компактнее и аккуратнее */
+.category-card {
+    text-align: center;
+    width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card__image {
+    width: 100%;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.category-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card__title {
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #184d26;
+}
+
+/* ===== Анимация появления только при скролле ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.7s ease;
+}
+
+.category-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.category-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.category-card:nth-child(4) {
+    transition-delay: 0.45s;
+}
+
+/* класс, добавляемый когда в зоне видимости */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media (max-width: 767px) {
+
+    .categories {
+        padding: 30px 0;
+    }
+
+    .categories__container {
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .category-card {
+        width: 150px;
+    }
+
+    .category-card__image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .category-card__title {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .categories__container {
+        gap: 50px;
+    }
+
+    .category-card {
+        width: 130px;
+    }
+
+    .category-card__image {
+        width: 130px;
+        height: 130px;
+    }
+
+    .category-card__title {
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .category-card {
+        width: 110px;
+    }
+
+    .category-card__image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .category-card__title {
+        font-size: 15px;
+    }
+}
