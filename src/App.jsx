@@ -1,5 +1,5 @@
 import { CartProvider } from "./context/CartContext";
-import CartSidebar from "./components/CartSidebar/CartSidebar";
+import CartSidebar from "./components/CartSideBar/CartSideBar";
 import Header from "./components/Header/Header";
 import Home from "./pages/HomePage/Home";
 
