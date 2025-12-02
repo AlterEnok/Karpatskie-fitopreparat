@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer">
 
-            {/* Внутренний белый блок */}
+
             <div className="footer__inner">
 
                 <div className="footer__header">
@@ -47,7 +47,6 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Нижний копирайт */}
             <div className="footer__bottom">
                 © Карпатські фітопрепарати. 2025. Усі права захищені.
                 Розроблено студією <a href="https://www.novateamweb.com" target="_blank" rel="noreferrer">NovaTeam</a>.

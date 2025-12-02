@@ -110,8 +110,8 @@ body[data-slide="1"] .hero__bottomText {
 
 .hero__cta {
     position: absolute;
-    right: 30px;
-    bottom: 12px;
+    right: 3px;
+    bottom: 4px;
     z-index: 20;
 }
 
@@ -136,6 +136,17 @@ body[data-slide="1"] .hero__bottomText {
     border: 3px solid #e2e6e2;
 }
 
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .hero__cta {
+        right: 5px;
+        bottom: 4px;
+    }
+
+    .hero__cta-btn {
+        padding: 20px 100px;
+    }
+}
 
 @media (max-width: 1024px) {
     .hero {

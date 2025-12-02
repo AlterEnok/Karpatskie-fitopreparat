@@ -82,7 +82,7 @@
 }
 
 .header__icon {
-    font-size: 22px;
+    font-size: 30px;
     cursor: pointer;
     transition: 0.2s ease;
     color: #000;
@@ -181,7 +181,7 @@
     right: 0;
 }
 
-/* CLOSE BUTTON - минималистичный крестик */
+/* Кнопка закрытия */
 .menu-close {
     position: absolute;
     top: 22px;
@@ -191,7 +191,6 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +202,7 @@
     height: 2px;
     background: #000;
     border-radius: 2px;
-    transition: transform .22s ease, background .15s ease, opacity .15s ease;
+    transition: background .2s ease;
 }
 
 .menu-close span:first-child {
@@ -218,7 +217,7 @@
     background: #0E7A0D;
 }
 
-/* меню ссылки */
+/* Блок ссылок */
 .menu-links {
     margin-top: 80px;
     display: flex;
@@ -226,43 +225,38 @@
     gap: 36px;
 }
 
-/* каждый пункт как ссылка (полная ширина) */
 .menu-item {
     position: relative;
-    display: block;
     text-decoration: none;
-    color: #000;
+    display: block;
     padding-bottom: 10px;
-    transition: transform .18s ease, color .18s ease;
-    outline: none;
+    color: #000;
+    transition: color .25s ease, transform .25s ease;
 }
 
-/* линия сверху пунктов — псевдоэлемент, тонкая зелёно-серая линия */
+/* Линия над пунктами */
 .menu-item::before {
     content: "";
     position: absolute;
     left: 0;
     right: 14px;
     height: 6px;
-    /* толщина линии — подбери по вкусу */
     background: #dbe6dd;
-    /* светлая зелёно-серая */
     border-radius: 6px;
     top: -28px;
-    /* отступ выше текста, как на скрине */
+    opacity: 1;
+    transition: background .25s ease;
 }
 
-/* основной текст пункта (большой) */
 .menu-item-text {
-    display: inline-block;
     font-size: 64px;
     font-weight: 700;
     font-family: 'Montserrat Alternates';
     letter-spacing: -0.02em;
     line-height: 0.95;
+    transition: color .28s ease, transform .28s ease;
 }
 
-/* маленький номер — поверх правой части текста, чуть сверху */
 .menu-item small {
     position: absolute;
     right: 0;
@@ -270,23 +264,24 @@
     font-size: 14px;
     color: #2c5d32;
     font-weight: 800;
-    transform: translateY(-30%);
-    /* тонкая поправка, чтоб быть над последней буквой */
+    transition: color .28s ease;
 }
 
-/* hover эффекты */
-.menu-item:hover .menu-item-text,
-.menu-item:focus .menu-item-text {
+/* Hover — плавный, мягкий, без синевы */
+.menu-item:hover .menu-item-text {
     color: #0E7A0D;
-    transform: translateX(6px);
+    transform: translateX(8px);
 }
 
-.menu-item:hover small,
-.menu-item:focus small {
+.menu-item:hover small {
     color: #0E7A0D;
 }
 
-/* Email */
+.menu-item:hover::before {
+    background: #b7d3b9;
+}
+
+/* Email — теперь активная ссылка */
 .menu-email {
     margin-top: 42px;
     font-size: 24px;
@@ -296,16 +291,22 @@
     padding-top: 18px;
     padding-bottom: 10px;
     color: #111;
+    text-decoration: none;
+    transition: color .25s ease, border-color .25s ease;
 }
 
-/* HUGE menu title at bottom */
+.menu-email:hover {
+    color: #0E7A0D;
+    border-color: #b7d3b9;
+}
+
+/* Большой текст “МЕНЮ” */
 .menu-title {
     margin-top: 30px;
     font-size: 64px;
     font-weight: 900;
     letter-spacing: 16px;
     line-height: 1.05;
-    text-align: left;
 }
 
 /* Desktop burger */

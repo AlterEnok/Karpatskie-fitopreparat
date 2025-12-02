@@ -102,9 +102,14 @@ const Header = () => {
                     </Link>
                 </nav>
 
-                <p className="menu-email">drabuk_olena@ukr.net</p>
+                {/* Сделано ссылкой */}
+                <a href="mailto:drabuk_olena@ukr.net" className="menu-email">
+                    drabuk_olena@ukr.net
+                </a>
+
                 <h1 className="menu-title">М Е Н Ю</h1>
             </div>
+
         </>
     );
 };

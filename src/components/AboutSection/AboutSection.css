@@ -79,8 +79,6 @@
     color: #fff;
     text-decoration: none;
     width: fit-content;
-
-    /* красивый ховер */
     transition: 0.3s ease;
 }
 
@@ -97,7 +95,7 @@
     transition: opacity 0.6s ease, transform 0.6sease, filter 0.6sease;
 }
 
-/* Мягкое плавное исчезновение */
+
 .fade-out {
     opacity: 0;
     transform: translateY(20px);
@@ -128,7 +126,7 @@
 
 @media (max-width: 768px) {
 
-    /* Переключаем layout в одну колонку (вертикально) */
+
     .about-section {
         display: flex;
         flex-direction: column;
@@ -136,7 +134,7 @@
         padding: 25px;
     }
 
-    /* Левая колонка остаётся первой (в ней: big-img, content-block, main-btn-link) */
+
     .left-column {
         order: 1;
         display: flex;
@@ -144,30 +142,29 @@
         gap: 18px;
     }
 
-    /* Правая колонка становится видимой и идёт после left-column (т.е. после кнопки) */
+
     .right-column {
         order: 2;
         display: block;
-        /* показываем */
         width: 100%;
         align-items: stretch;
     }
 
-    /* Большая картинка */
+
     .big-img {
         height: 350px;
         object-fit: cover;
         border-radius: 20px;
     }
 
-    /* Блок контента */
+
     .content-block {
         font-size: 20px;
         padding: 22px;
         border-radius: 18px;
     }
 
-    /* Вставляем правую картинку аккуратно под блоком */
+
     .right-column .side-img {
         width: 100%;
         object-fit: cover;
@@ -180,10 +177,9 @@
         padding: 10px;
     }
 
-    /* Кнопка консультации — полная ширина */
+
     .main-btn-link {
         order: 3;
-        /* остаётся внутри left-column, но внешне перед right-column */
         width: 100%;
         text-align: center;
         padding: 22px 0;
@@ -191,7 +187,7 @@
     }
 }
 
-/* ====== Меньшие телефоны ====== */
+
 @media (max-width: 480px) {
     .about-section {
         padding: 18px;
@@ -230,7 +226,7 @@
     }
 }
 
-/* ====== Очень маленькие телефоны ====== */
+
 @media (max-width: 360px) {
     .about-section {
         padding: 14px;
@@ -250,5 +246,25 @@
     .main-btn-link {
         padding: 18px 0;
         font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) and (min-width: 385px) {
+
+    .content-block {
+        padding: 18px;
+        font-size: 17px;
+        border-radius: 16px;
+    }
+
+    .arrow-btn {
+        right: -14px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .big-img {
+        height: 240px;
+        border-radius: 16px;
     }
 }

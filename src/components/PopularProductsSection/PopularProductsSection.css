@@ -68,6 +68,31 @@
 
 /* Адаптив */
 
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .popular__title {
+        max-width: 1800px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 64px;
+        line-height: 44%;
+        letter-spacing: 0.14em;
+        margin: 0 auto 60px;
+        padding: 35px 0;
+        border-radius: 30px;
+    }
+
+    .popular__grid {
+        grid-template-columns: repeat(3, 320px);
+        justify-content: center;
+        gap: 78px;
+    }
+
+
+    .product-card {
+        width: 320px;
+    }
+}
+
 @media (max-width: 768px) {
     .popular__title {
         font-size: 28px;

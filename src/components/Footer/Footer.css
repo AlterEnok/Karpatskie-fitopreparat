@@ -1,9 +1,15 @@
 .footer {
     background: #2F4F39;
-    padding: 30px 0 10px;
-    border-radius: 24px 24px 0 0;
+    padding: 30px 8px 15px;
+    border-radius: 32px 32px 0 0;
     font-family: inherit;
+    margin-bottom: -7px;
+    margin-left: -8px;
+    width: 100%;
+    transform: none;
 }
+
+
 
 /* Белый блок */
 .footer__inner {
@@ -110,14 +116,14 @@
 }
 
 .footer__bottom a {
-    color: #ffffff;
+    color: #64e268;
     font-weight: 900;
     margin-left: 4px;
     transition: 0.2s all;
 }
 
 .footer__bottom a:hover {
-    color: #377239;
+    color: #fff;
 }
 
 
@@ -126,15 +132,15 @@
 @media (min-width: 1900px) and (max-width: 3500px) {
 
     .footer {
-        padding: 50px 0 20px;
+        padding: 50px 8px 20px;
         border-radius: 32px 32px 0 0;
+        margin-bottom: -12px;
+
     }
 
     .footer__inner {
         max-width: 1650px;
-        /* Чуть шире чем обычные 1380px */
         padding: 60px 80px;
-        /* Больше воздуха */
         border-radius: 28px;
     }
 
@@ -156,11 +162,10 @@
         width: 120px;
     }
 
-    /* Нижняя полоска */
+
     .footer__bottom {
         max-width: 1650px;
         width: calc(100% - 200px);
-        /* Уже, чтобы на большом экране смотрелось красиво */
         font-size: 24px;
         padding: 22px 0;
         border-radius: 34px;
@@ -225,30 +230,46 @@
 /* 📱 768px — мобильные большие */
 /* =============================== */
 @media (max-width: 768px) {
+
+    .footer {
+        margin-bottom: -12px;
+    }
+
     .footer__inner {
+        width: 90%;
+        max-width: 380px;
+        background: #fff;
+        border-radius: 28px;
         padding: 30px 25px;
+        text-align: center;
     }
 
     .footer__title {
-        font-size: 28px;
-        letter-spacing: 0.1em;
+        font-size: 26px;
+        letter-spacing: 0.08em;
     }
 
     .footer__column h3 {
         font-size: 20px;
+        margin-bottom: 10px;
     }
 
     .footer__column p,
     .footer__column a {
         font-size: 16px;
-        letter-spacing: 0.05em;
+        line-height: 1.45;
     }
 
     .footer__bottom {
-        font-size: 16px;
-        padding: 14px 0;
-        border-radius: 22px;
-        width: calc(100% - 30px);
+        margin-top: 20px;
+        width: 90%;
+        max-width: 360px;
+        background: #fff;
+        color: #2F4F39;
+        font-size: 14px;
+        padding: 12px 0;
+        border-radius: 20px;
+        text-align: center;
     }
 }
 
@@ -258,16 +279,20 @@
 @media (max-width: 480px) {
 
     .footer__inner {
+        width: 92%;
+        max-width: 350px;
         padding: 24px 18px;
+        border-radius: 26px;
+    }
+
+    .footer__logo {
+        width: 70px;
+        margin-bottom: 14px;
     }
 
     .footer__title {
         font-size: 22px;
         letter-spacing: 0.06em;
-    }
-
-    .footer__logo {
-        width: 70px;
     }
 
     .footer__column h3 {
@@ -280,10 +305,11 @@
     }
 
     .footer__bottom {
-        font-size: 14px;
+        width: 92%;
+        max-width: 340px;
+        font-size: 12px;
         padding: 12px 0;
         border-radius: 20px;
-        width: calc(100% - 24px);
     }
 }
 
@@ -291,6 +317,15 @@
 /* 📱 380px — очень маленькие */
 /* =============================== */
 @media (max-width: 380px) {
+
+    .footer__inner {
+        padding: 20px 16px;
+        border-radius: 24px;
+    }
+
+    .footer__logo {
+        width: 60px;
+    }
 
     .footer__title {
         font-size: 20px;
@@ -302,6 +337,6 @@
     }
 
     .footer__bottom {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
