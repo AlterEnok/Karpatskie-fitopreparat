@@ -53,8 +53,11 @@ const Header = () => {
                 </div>
 
                 <div className="header__logo">
-                    <img src={logo} alt="Рослина Карпат" />
+                    <Link to="/">
+                        <img src={logo} alt="Рослина Карпат" />
+                    </Link>
                 </div>
+
 
                 <div className="header__icons">
 

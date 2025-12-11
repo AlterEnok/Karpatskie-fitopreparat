@@ -1,0 +1,417 @@
+/* PAGE FADE */
+.fade-page {
+    animation: fadePage .4s ease;
+}
+
+@keyframes fadePage {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* PAGE */
+.catalog-page {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.catalog-hero {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    /* Картинка ниже → НЕ мылится */
+    margin-bottom: 120px;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+/* КАРТИНКА НЕ НА ВЕСЬ ЭКРАН — УМЕНЬШЕННАЯ */
+.catalog-hero-img {
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 22px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* ТЕКСТОВЫЙ БЛОК СЛЕВА */
+.catalog-hero-text {
+    position: absolute;
+    left: 192px;
+    top: 33%;
+    transform: translateY(-50%);
+    max-width: 500px;
+    padding: 28px 32px;
+    border-radius: 18px;
+    color: #355d3d;
+    z-index: 10;
+
+}
+
+.catalog-hero-text h2 {
+    font-size: 28px;
+    line-height: 1.32;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.catalog-hero-text p {
+    font-size: 18px;
+    line-height: 1.4;
+    opacity: 1;
+}
+
+/* ================= LAYOUT ================= */
+.catalog-layout {
+    display: flex;
+    gap: 30px;
+}
+
+/* ================= FILTER ================= */
+.catalog-filter {
+    width: 260px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+}
+
+.catalog-filter h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.filter-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 12px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.filter-item.active {
+    background: #3d5f3e;
+    color: #fff;
+    font-weight: 600;
+}
+
+.filter-item.active span {
+    color: #fff;
+}
+
+.filter-more {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3d5f3e;
+    font-weight: 500;
+}
+
+/* ================= PRODUCT GRID ================= */
+.catalog-products {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ================= PAGINATION ================= */
+.pagination {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pagination button {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background: #3d5f3e;
+    color: #fff;
+    border-color: #3d5f3e;
+}
+
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+
+    .catalog-page {
+        padding: 60px 0;
+    }
+
+    .catalog-hero {
+        height: 560px;
+        margin-bottom: 160px;
+        border-radius: 28px;
+    }
+
+    .catalog-hero-img {
+        width: 70%;
+        height: 100%;
+        border-radius: 28px;
+    }
+
+    .catalog-hero-text {
+        left: 260px;
+        top: 38%;
+        max-width: 650px;
+        padding: 40px 48px;
+        border-radius: 22px;
+    }
+
+    .catalog-hero-text h2 {
+        font-size: 40px;
+        line-height: 1.3;
+    }
+
+    .catalog-hero-text p {
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    /* Лэйаут */
+    .catalog-layout {
+        gap: 50px;
+    }
+
+    /* Фильтр */
+    .catalog-filter {
+        width: 320px;
+        padding: 28px;
+        border-radius: 20px;
+    }
+
+    .catalog-filter h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .filter-item {
+        padding: 14px 16px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
+
+    /* Сетка товаров */
+    .catalog-products {
+        grid-template-columns: repeat(4, 1fr);
+        /* +1 колонка */
+        gap: 40px;
+    }
+
+    /* Пагинация */
+    .pagination button {
+        padding: 14px 20px;
+        font-size: 18px;
+    }
+
+
+}
+
+/* ================= ADAPTIVE ================= */
+@media (max-width: 1024px) {
+
+    .catalog-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .catalog-hero {
+        height: 420px;
+        margin-bottom: 100px;
+    }
+
+    .catalog-hero-img {
+        width: 80%;
+    }
+
+    .catalog-hero-text {
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 360px;
+        padding: 26px 28px;
+    }
+
+    .catalog-hero-text h2 {
+        font-size: 28px;
+    }
+
+    .catalog-hero-text p {
+        font-size: 17px;
+    }
+
+    .catalog-filter {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .catalog-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
+    .catalog-slider {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .catalog-hero {
+        height: 300px;
+        margin-bottom: 70px;
+    }
+
+    .catalog-hero-img {
+        width: 92%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Текст остаётся поверх картинки */
+    .catalog-hero-text {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: 85%;
+        padding: 16px 18px;
+        border-radius: 14px;
+        text-align: left;
+    }
+
+    .catalog-hero-text h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .catalog-hero-text p {
+        font-size: 15px;
+    }
+
+    .catalog-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .catalog-filter {
+        padding: 16px;
+        width: 90%;
+    }
+
+    .catalog-slider {
+        height: 220px;
+    }
+
+    .pagination {
+        gap: 7px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .catalog-hero {
+        height: 240px;
+        margin-bottom: 55px;
+    }
+
+    .catalog-hero-img {
+        width: 95%;
+        height: 100%;
+    }
+
+    .catalog-hero-text {
+        left: 15px;
+        top: 34%;
+        transform: translateY(-50%);
+        padding: 14px 16px;
+        max-width: 80%;
+    }
+
+    .catalog-hero-text h2 {
+        font-size: 16px;
+    }
+
+    .catalog-hero-text p {
+        font-size: 13px;
+    }
+
+    .catalog-products {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .catalog-slider {
+        height: 180px;
+    }
+
+    .catalog-filter {
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 350px) {
+
+    .catalog-hero {
+        height: 200px;
+        margin-bottom: 45px;
+    }
+
+    .catalog-hero-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .catalog-hero-text {
+        left: 10px;
+        top: 36%;
+        transform: translateY(-50%);
+        padding: 10px 12px;
+        max-width: 85%;
+    }
+
+    .catalog-hero-text h2 {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .catalog-hero-text p {
+        font-size: 12px;
+        line-height: 1.25;
+    }
+
+    .catalog-products {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .catalog-slider {
+        height: 160px;
+    }
+
+    .catalog-filter {
+        padding: 10px;
+    }
+}
