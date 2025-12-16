@@ -6,8 +6,11 @@
 
 /* Заголовок */
 .product-title {
-    font-size: 42px;
-    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 96px;
+    line-height: 29%;
+    margin-bottom: 50px;
+    font-family: "Jost", sans-serif;
 }
 
 .product-sub {
@@ -22,10 +25,23 @@
     margin: 40px auto 20px;
     position: relative;
     background: #f4f7f2;
-    padding: 40px 20px 70px;
+    padding: 40px 20px 100px;
     border-radius: 22px;
     border: 3px solid #d8e6d8;
 }
+
+.product-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 360px;
+    /* мобилка */
+}
+
+.product-swiper {
+    width: 100%;
+}
+
 
 .product-main-img {
     width: 90%;
@@ -72,7 +88,7 @@
 /* КНОПКА — hover + click */
 .add-cart-btn {
     position: absolute;
-    bottom: 50px;
+    bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
     background: #355d3d;
@@ -82,6 +98,7 @@
     font-size: 20px;
     border: none;
     cursor: pointer;
+    z-index: 10;
     transition: 0.25s;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -239,4 +256,444 @@
     font-size: 17px;
     line-height: 1.6;
     color: #355d3d;
+}
+
+
+
+.similar-section {
+    max-width: 1200px;
+    margin: 120px auto 0;
+    padding: 0 20px;
+}
+
+.similar-title {
+    margin: 0 auto 50px;
+    width: 100%;
+    max-width: 680px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 80px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+
+    font-weight: 700;
+    font-size: 56px;
+    color: #355d3d;
+    text-align: center;
+}
+
+/* ---------- SWIPER ---------- */
+
+.similar-slider-wrap {
+    position: relative;
+}
+
+/* swiper НЕ трогаем overflow */
+.similar-swiper {
+    padding: 20px 0 60px;
+}
+
+/* ---------- CUSTOM ARROWS ---------- */
+
+.similar-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #355d3d;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.similar-arrow svg {
+    font-size: 20px;
+    color: #355d3d;
+}
+
+.similar-arrow:hover {
+    background: #355d3d;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 18px rgba(53, 93, 61, 0.35);
+}
+
+.similar-arrow:hover svg {
+    color: white;
+}
+
+.similar-arrow.prev {
+    left: -24px;
+}
+
+.similar-arrow.next {
+    right: -24px;
+}
+
+/* ---------- PAGINATION (MOBILE) ---------- */
+
+.similar-swiper .swiper-pagination {
+    bottom: 12px;
+}
+
+.similar-swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #d8e6d8;
+    opacity: 1;
+    transition: 0.25s;
+}
+
+.similar-swiper .swiper-pagination-bullet-active {
+    background: #355d3d;
+    transform: scale(1.3);
+}
+
+/* ADAPTIVE */
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+
+    /* Общий контейнер */
+    .product-page {
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 80px 40px 120px;
+    }
+
+    /* Заголовки */
+    .product-title {
+        font-size: 120px;
+        margin-bottom: 80px;
+    }
+
+    .product-sub {
+        font-size: 20px;
+    }
+
+    /* Слайдер товара */
+    .product-slider {
+        max-width: 700px;
+        padding: 60px 40px 130px;
+        border-radius: 28px;
+    }
+
+    .product-main-img {
+        width: 85%;
+        border-radius: 20px;
+    }
+
+    /* Стрелки товара */
+    .arrow-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+    }
+
+    .left {
+        left: -30px;
+    }
+
+    .right {
+        right: -30px;
+    }
+
+    /* Кнопка */
+    .add-cart-btn {
+        font-size: 24px;
+        padding: 18px 56px;
+        bottom: 45px;
+    }
+
+    .price-box {
+        font-size: 30px;
+        padding: 18px 56px;
+        transform: translateX(-50%) translateY(55px);
+    }
+
+    /* Описание */
+    .product-description {
+        max-width: 1500px;
+        padding: 50px;
+        margin-top: 100px;
+        border-radius: 30px;
+    }
+
+    .product-description h2 {
+        font-size: 64px;
+    }
+
+    .product-text {
+        font-size: 30px;
+        line-height: 150%;
+    }
+
+    /* Tabs */
+    .tabs-container {
+        margin-top: 80px;
+        gap: 28px;
+    }
+
+    .tab-btn {
+        font-size: 26px;
+        padding: 60px 0;
+        border-radius: 22px;
+    }
+
+    /* Similar section */
+    .similar-section {
+        max-width: 1600px;
+        margin-top: 160px;
+    }
+
+    .similar-title {
+        max-width: 900px;
+        height: 130px;
+        font-size: 72px;
+        border-radius: 100px;
+        margin-bottom: 80px;
+    }
+
+    /* Карточки в слайдере */
+    .slider-item {
+        flex: 0 0 calc(100% / 4);
+    }
+
+    /* Стрелки похожих товаров */
+    .similar-arrow {
+        width: 60px;
+        height: 60px;
+    }
+
+    .similar-arrow svg {
+        font-size: 26px;
+    }
+
+    .similar-arrow.prev {
+        left: -40px;
+    }
+
+    .similar-arrow.next {
+        right: -40px;
+    }
+
+
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+    .product-title {
+        font-size: 36px;
+    }
+
+    .product-description h2 {
+        font-size: 38px;
+    }
+
+    .product-text {
+        font-size: 22px;
+    }
+
+    .slider-item {
+        min-width: calc(100% / 2);
+    }
+
+    .similar-title {
+        width: 520px;
+        font-size: 48px;
+        height: 90px;
+    }
+
+    .slider-arrow.left,
+    .slider-arrow.right {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .product-title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .product-sub {
+        font-size: 14px;
+    }
+
+    .product-slider {
+        width: 95%;
+        padding: 30px 16px 80px;
+    }
+
+    .product-swiper .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 293px;
+
+    }
+
+    .product-main-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    .arrow-btn {
+        display: none;
+    }
+
+    .product-main-img {
+        width: 100%;
+    }
+
+    .product-swiper .swiper-pagination {
+        bottom: 8px;
+    }
+
+    .product-swiper .swiper-pagination-bullet {
+        background: #cfe0cf;
+        opacity: 1;
+    }
+
+    .product-swiper .swiper-pagination-bullet-active {
+        background: #355d3d;
+        transform: scale(1.3);
+    }
+
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        top: 270px;
+    }
+
+    .add-cart-btn {
+        font-size: 13px;
+        padding: 10px 22px;
+        bottom: 20px;
+    }
+
+    .price-box {
+        font-size: 20px;
+        padding: 12px 30px;
+    }
+
+    /* описание */
+    .product-description {
+        padding: 24px 18px;
+    }
+
+    .product-description h2 {
+        font-size: 32px;
+    }
+
+    .product-text {
+        font-size: 20px;
+    }
+
+    /* tabs */
+    .tabs-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .tab-btn {
+        padding: 22px 0;
+        font-size: 18px;
+    }
+
+    /* похожие товары */
+    .similar-section {
+        margin-top: 90px;
+    }
+
+    .similar-title {
+        width: 100%;
+        font-size: 32px;
+        height: 80px;
+        margin-bottom: 36px;
+    }
+
+    .slider-item {
+        min-width: 100%;
+    }
+
+    /* скрываем стрелки */
+    .similar-arrow {
+        display: none;
+    }
+
+    /* включаем дотсы */
+    .similar-swiper .swiper-pagination {
+        display: flex;
+        justify-content: center;
+        bottom: 10px;
+    }
+
+    .similar-swiper .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: #d8e6d8;
+        opacity: 1;
+        transition: 0.25s;
+    }
+
+    .similar-swiper .swiper-pagination-bullet-active {
+        background: #355d3d;
+        transform: scale(1.3);
+    }
+}
+
+
+@media (max-width: 360px) {
+    .product-title {
+        font-size: 24px;
+    }
+
+    .product-description h2 {
+        font-size: 26px;
+    }
+
+    .product-text {
+        font-size: 18px;
+    }
+
+    .add-cart-btn {
+        font-size: 16px;
+        padding: 10px 22px;
+    }
+
+    .price-box {
+        font-size: 18px;
+        padding: 10px 22px;
+    }
+
+    .similar-title {
+        font-size: 28px;
+        height: 70px;
+    }
+
+    .similar-arrow {
+        display: none;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
 }

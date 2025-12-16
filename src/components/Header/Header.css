@@ -267,7 +267,7 @@
     transition: color .28s ease;
 }
 
-/* Hover — плавный, мягкий, без синевы */
+
 .menu-item:hover .menu-item-text {
     color: #0E7A0D;
     transform: translateX(8px);
@@ -301,12 +301,25 @@
 }
 
 /* Большой текст “МЕНЮ” */
-.menu-title {
-    margin-top: 30px;
-    font-size: 64px;
-    font-weight: 900;
-    letter-spacing: 16px;
-    line-height: 1.05;
+.menu-auth-btn {
+    padding: 18px 14px;
+    background: #fff;
+    margin-top: 25px;
+    color: #2f5e2f;
+    border-radius: 30px;
+    border: 3px solid #2f5e2f;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 118%;
+    letter-spacing: 0.07em;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-auth-btn:hover {
+    background: #0E7A0D;
+    color: #fff;
 }
 
 /* Desktop burger */

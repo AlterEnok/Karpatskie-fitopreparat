@@ -1,4 +1,6 @@
 import { CartProvider } from "./context/CartContext";
+import { AuthProvider } from "./context/AuthContext"; // <-- импорт
+import AuthModal from "./components/AuthModal/AuthModal";
 import CartSidebar from "./components/CartSideBar/CartSideBar";
 import Header from "./components/Header/Header";
 import ScrollToTop from "./ScrollToTop";
@@ -11,18 +13,21 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
   return (
-    <CartProvider>
-      <ScrollToTop />
+    <AuthProvider> {/* <-- добавили AuthProvider */}
+      <CartProvider>
+        <ScrollToTop />
 
-      <Header />
-      <CartSidebar />
+        <Header />
+        <AuthModal />
+        <CartSidebar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-      </Routes>
-    </CartProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+        </Routes>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

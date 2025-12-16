@@ -1,0 +1,144 @@
+/* ---------- OVERLAY ---------- */
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- MODAL ---------- */
+.auth-modal {
+    width: 100%;
+    max-width: 420px;
+    padding: 32px 28px;
+
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    animation: modalFade 0.3s ease;
+}
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------- TABS ---------- */
+.auth-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.auth-tab.active {
+    background: #355d3d;
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(53, 93, 61, 0.35);
+}
+
+.auth-tabs button {
+    flex: 1;
+    padding: 14px 0;
+
+    border-radius: 40px;
+    border: 2px solid #355d3d;
+    background: transparent;
+
+    font-weight: 600;
+    font-size: 16px;
+    color: #355d3d;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.auth-tabs button:hover {
+    background: #355d3d;
+    color: #fff;
+}
+
+/* ---------- INPUTS ---------- */
+.auth-modal input {
+    width: 90%;
+    padding: 14px 18px;
+
+    border-radius: 14px;
+    border: 2px solid #d8e6d8;
+    background: #fff;
+
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.auth-modal input:focus {
+    border-color: #355d3d;
+    box-shadow: 0 0 0 3px rgba(53, 93, 61, 0.15);
+}
+
+/* ---------- MAIN BUTTON ---------- */
+.auth-modal button:not(.auth-tabs button) {
+    margin-top: 8px;
+    padding: 16px 0;
+
+    border-radius: 40px;
+    border: none;
+    background: #355d3d;
+
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.auth-modal button:not(.auth-tabs button):hover {
+    background: #2c4e33;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(53, 93, 61, 0.35);
+}
+
+/* ---------- LINKS ---------- */
+.auth-modal span {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #355d3d;
+    text-align: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.auth-modal span:hover {
+    text-decoration: underline;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 480px) {
+    .auth-modal {
+        margin: 0 16px;
+        padding: 24px 20px;
+    }
+
+    .auth-tabs button {
+        font-size: 15px;
+    }
+}

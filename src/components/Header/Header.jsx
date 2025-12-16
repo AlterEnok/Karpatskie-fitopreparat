@@ -4,6 +4,7 @@ import { FaRegHeart, FaSearch } from "react-icons/fa";
 import { RiShoppingBagLine, RiMenu3Line } from "react-icons/ri";
 import logo from "../../assets/logo.svg";
 import CartContext from "../../context/CartContext";
+import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -13,6 +14,14 @@ const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
     const { toggleCart, cartItems } = useContext(CartContext);
+    const { setIsAuthOpen } = useContext(AuthContext);
+
+    const openAuth = () => {
+        setMenuOpen(false);
+        setIsAuthOpen(true);
+    };
+
+
 
     // Количество товаров
     const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
@@ -110,7 +119,10 @@ const Header = () => {
                     drabuk_olena@ukr.net
                 </a>
 
-                <h1 className="menu-title">М Е Н Ю</h1>
+                <button className="menu-auth-btn" onClick={openAuth}>
+                    Вхід / Реєстрація
+                </button>
+
             </div>
 
         </>

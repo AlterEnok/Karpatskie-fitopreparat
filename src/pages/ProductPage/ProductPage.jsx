@@ -1,15 +1,35 @@
 import { useParams } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useRef } from "react";
 import "./ProductPage.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import CartContext from "../../context/CartContext";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import Footer from "../../components/Footer/Footer";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+
+
 
 import productImg1 from "../../assets/product-page.png";
 import productImg2 from "../../assets/product-page2.jpg";
 
+const VISIBLE_COUNT = 3;
+
 const ProductPage = () => {
     const { id } = useParams();
     const { addToCart } = useContext(CartContext);
+
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+    const swiperRef = useRef(null);
 
     const product = {
         id,
@@ -17,46 +37,52 @@ const ProductPage = () => {
         subtitle: "Зміцнює захисні сили організму",
         price: 1190,
         images: [productImg1, productImg2],
-
-        description: `Шампунь для щоденного догляду. Дбайливо очищає волосся та шкіру голови, зберігаючи природний баланс вологи. Надає волоссю легкість, свіжість і природний блиск. Підходить для щоденного використання та різних типів волосся.`,
-
-        usage: `Нанести невелику кількість на вологе волосся, спінити...`,
-
-        ingredients: `М’ята, ромашка, алое, олії, протеїни...`
+        description:
+            "Шампунь для щоденного догляду. Дбайливо очищає волосся та шкіру голови, зберігаючи природний баланс вологи.",
+        usage: "Нанести на вологе волосся, спінити, змити.",
+        ingredients: "М’ята, ромашка, алое, натуральні олії."
     };
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [fullscreen, setFullscreen] = useState(false);
-
     const [activeTab, setActiveTab] = useState("description");
 
-    const prevSlide = () => {
-        setCurrentIndex((prev) =>
-            prev === 0 ? product.images.length - 1 : prev - 1
-        );
-    };
 
-    const nextSlide = () => {
-        setCurrentIndex((prev) =>
-            prev === product.images.length - 1 ? 0 : prev + 1
-        );
-    };
 
-    // Текст, который меняется в product-description
+
+
     const getCurrentText = () => {
         if (activeTab === "usage") return product.usage;
         if (activeTab === "ingredients") return product.ingredients;
         return product.description;
     };
 
+    /* ---------- СХОЖІ ТОВАРИ ---------- */
+
+    const similarProducts = [
+        { id: 1, title: "Антивірин", price: 1890, image: productImg1 },
+        { id: 2, title: "Фітобаланс", price: 1590, image: productImg1 },
+        { id: 3, title: "Енергія", price: 1390, image: productImg1 },
+        { id: 4, title: "БіоХелп", price: 1690, image: productImg1 },
+    ];
+
+    /** 🔑 ВАЖНО: подключаем стрелки ПОСЛЕ init */
+    useEffect(() => {
+        if (!swiperRef.current) return;
+
+        swiperRef.current.params.navigation.prevEl = prevRef.current;
+        swiperRef.current.params.navigation.nextEl = nextRef.current;
+        swiperRef.current.navigation.init();
+        swiperRef.current.navigation.update();
+    }, []);
+
+
+
     return (
         <>
             {fullscreen && (
                 <div className="fullscreen" onClick={() => setFullscreen(false)}>
-                    <img
-                        src={product.images[currentIndex]}
-                        className="fullscreen-img"
-                    />
+                    <img src={product.images[currentIndex]} className="fullscreen-img" />
                 </div>
             )}
 
@@ -64,67 +90,128 @@ const ProductPage = () => {
                 <h1 className="product-title">{product.title}</h1>
                 <p className="product-sub">{product.subtitle}</p>
 
+                {/* ---------- СЛАЙДЕР ТОВАРА ---------- */}
                 <div className="product-slider">
-                    <button className="arrow-btn left" onClick={prevSlide}>
+                    {/* кастомные стрелки */}
+                    <button className="arrow-btn left" ref={prevRef}>
                         <FaArrowLeft />
                     </button>
 
-                    <img
-                        src={product.images[currentIndex]}
-                        className="product-main-img"
-                        onClick={() => setFullscreen(true)}
-                    />
-
-                    <button className="arrow-btn right" onClick={nextSlide}>
+                    <button className="arrow-btn right" ref={nextRef}>
                         <FaArrowRight />
                     </button>
 
+                    <Swiper
+                        modules={[Navigation, Pagination]}
+                        slidesPerView={1}
+                        loop
+                        onSwiper={(swiper) => (swiperRef.current = swiper)}
+                        onBeforeInit={(swiper) => {
+                            swiper.params.navigation.prevEl = prevRef.current;
+                            swiper.params.navigation.nextEl = nextRef.current;
+                        }}
+                        navigation
+                        pagination={{ clickable: true }}
+                        breakpoints={{
+                            0: {
+                                pagination: { enabled: true },
+                            },
+                            768: {
+                                pagination: { enabled: false },
+                            },
+                        }}
+                        className="product-swiper"
+                    >
+                        {product.images.map((img, index) => (
+                            <SwiperSlide key={index}>
+                                <img
+                                    src={img}
+                                    className="product-main-img"
+                                    onClick={() => {
+                                        setCurrentIndex(index);
+                                        setFullscreen(true);
+                                    }}
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
                     <button
                         className="add-cart-btn"
-                        onClick={() =>
-                            addToCart({
-                                ...product,
-                                image: product.images[0]
-                            })
-                        }
+                        onClick={() => addToCart({ ...product, image: product.images[0] })}
                     >
-                        Додати в корзину
+                        Додати в кошик
                     </button>
 
                     <div className="price-box">{product.price} грн</div>
                 </div>
 
-                {/* БЛОК ОПИСАНИЯ с динамическим текстом */}
+
+                {/* ---------- ОПИС ---------- */}
                 <div className="product-description">
                     <h2>{product.title}</h2>
                     <p className="product-sub">{product.subtitle}</p>
                     <p className="product-text">{getCurrentText()}</p>
                 </div>
 
-                {/* Вкладки */}
+                {/* ---------- ВКЛАДКИ ---------- */}
                 <div className="tabs-container">
-                    <button
-                        className={`tab-btn ${activeTab === "description" ? "active" : ""}`}
-                        onClick={() => setActiveTab("description")}
-                    >
-                        Опис
-                    </button>
-
-                    <button
-                        className={`tab-btn ${activeTab === "usage" ? "active" : ""}`}
-                        onClick={() => setActiveTab("usage")}
-                    >
-                        Застосування
-                    </button>
-
-                    <button
-                        className={`tab-btn ${activeTab === "ingredients" ? "active" : ""}`}
-                        onClick={() => setActiveTab("ingredients")}
-                    >
-                        Склад
-                    </button>
+                    <button className={`tab-btn ${activeTab === "description" ? "active" : ""}`} onClick={() => setActiveTab("description")}>Опис</button>
+                    <button className={`tab-btn ${activeTab === "usage" ? "active" : ""}`} onClick={() => setActiveTab("usage")}>Застосування</button>
+                    <button className={`tab-btn ${activeTab === "ingredients" ? "active" : ""}`} onClick={() => setActiveTab("ingredients")}>Склад</button>
                 </div>
+
+
+
+                <section className="similar-section">
+                    <h2 className="similar-title">Схожі товари</h2>
+
+                    <div className="similar-slider-wrap">
+                        {/* КАСТОМНЫЕ СТРЕЛКИ */}
+                        <button className="similar-arrow prev" ref={prevRef}>
+                            <FaChevronLeft />
+                        </button>
+
+                        <button className="similar-arrow next" ref={nextRef}>
+                            <FaChevronRight />
+                        </button>
+
+                        <Swiper
+                            modules={[Navigation, Pagination]}
+                            spaceBetween={24}
+                            slidesPerView={3}
+                            onBeforeInit={(swiper) => {
+                                swiper.params.navigation.prevEl = prevRef.current;
+                                swiper.params.navigation.nextEl = nextRef.current;
+                            }}
+                            navigation
+                            pagination={{ clickable: true }}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 1,
+                                },
+                                640: {
+                                    slidesPerView: 2,
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                            className="similar-swiper"
+                        >
+                            {similarProducts.map((item) => (
+                                <SwiperSlide key={item.id}>
+                                    <ProductCard product={item} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </section>
+
+
             </div>
+
+            <Footer />
         </>
     );
 };
