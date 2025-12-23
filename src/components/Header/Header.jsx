@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import "./Header.css";
-import { FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaRegHeart, FaSearch, FaUserCircle } from "react-icons/fa";
 import { RiShoppingBagLine, RiMenu3Line } from "react-icons/ri";
 import logo from "../../assets/logo.svg";
 import CartContext from "../../context/CartContext";
@@ -12,28 +12,24 @@ const Header = () => {
     const lastScroll = useRef(0);
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [userMenuOpen, setUserMenuOpen] = useState(false);
 
     const { toggleCart, cartItems } = useContext(CartContext);
-    const { setIsAuthOpen } = useContext(AuthContext);
+    const { user, setIsAuthOpen, logout } = useContext(AuthContext);
+
+    const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
 
     const openAuth = () => {
         setMenuOpen(false);
         setIsAuthOpen(true);
     };
 
-
-
-    // Количество товаров
-    const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
-
     useEffect(() => {
         const handleScroll = () => {
             const current = window.scrollY;
-
             if (current <= 20) setScrollDirection("top");
             else if (current > lastScroll.current) setScrollDirection("down");
             else setScrollDirection("up");
-
             lastScroll.current = current;
         };
 
@@ -42,11 +38,16 @@ const Header = () => {
     }, []);
 
     useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "auto";
+        document.body.style.overflow =
+            menuOpen || userMenuOpen ? "hidden" : "auto";
+
         return () => {
             document.body.style.overflow = "auto";
         };
-    }, [menuOpen]);
+    }, [menuOpen, userMenuOpen]);
+
+
+
 
     return (
         <>
@@ -67,12 +68,67 @@ const Header = () => {
                     </Link>
                 </div>
 
-
                 <div className="header__icons">
 
                     <FaRegHeart className="header__icon" />
 
-                    {/* КОРЗИНА С СЧЁТЧИКОМ */}
+                    {/* ===== USER ICON ===== */}
+                    {user && (
+                        <>
+                            <FaUserCircle
+                                className="header__icon"
+                                onClick={() => setUserMenuOpen(true)}
+                            />
+
+                            {userMenuOpen && (
+                                <div
+                                    className="user-modal-overlay"
+                                    onClick={() => setUserMenuOpen(false)}
+                                >
+                                    <div
+                                        className="user-modal"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        {/* ✕ CLOSE */}
+                                        <button
+                                            className="user-modal__close"
+                                            onClick={() => setUserMenuOpen(false)}
+                                            aria-label="Закрити"
+                                        >
+                                            ✕
+                                        </button>
+
+                                        <div className="user-modal__title">
+                                            Вітаємо, <span>{user.name}</span>
+                                        </div>
+
+                                        <Link
+                                            to="/profile"
+                                            className="user-modal__link"
+                                            onClick={() => setUserMenuOpen(false)}
+                                        >
+                                            Перейти до профілю
+                                        </Link>
+
+                                        <button
+                                            className="user-modal__logout"
+                                            onClick={() => {
+                                                logout();
+                                                setUserMenuOpen(false);
+                                            }}
+                                        >
+                                            Вийти
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </>
+                    )}
+
+
+
+
+                    {/* ===== CART ===== */}
                     <div className="header__cart-wrapper" onClick={toggleCart}>
                         <RiShoppingBagLine className="header__icon" />
                         {cartCount > 0 && (
@@ -87,10 +143,11 @@ const Header = () => {
                 </div>
             </header>
 
+            {/* ===== MOBILE MENU ===== */}
             <div
                 className={`menu-overlay ${menuOpen ? "show" : ""}`}
                 onClick={() => setMenuOpen(false)}
-            ></div>
+            />
 
             <div className={`menu-sidebar ${menuOpen ? "open" : ""}`}>
                 <button className="menu-close" onClick={() => setMenuOpen(false)}>
@@ -114,17 +171,16 @@ const Header = () => {
                     </Link>
                 </nav>
 
-                {/* Сделано ссылкой */}
                 <a href="mailto:drabuk_olena@ukr.net" className="menu-email">
                     drabuk_olena@ukr.net
                 </a>
 
-                <button className="menu-auth-btn" onClick={openAuth}>
-                    Вхід / Реєстрація
-                </button>
-
+                {!user && (
+                    <button className="menu-auth-btn" onClick={openAuth}>
+                        Вхід / Реєстрація
+                    </button>
+                )}
             </div>
-
         </>
     );
 };

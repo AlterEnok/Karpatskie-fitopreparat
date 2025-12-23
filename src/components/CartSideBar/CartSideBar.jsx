@@ -1,6 +1,8 @@
 import "./CartSidebar.css";
 import { useContext, useEffect } from "react";
 import CartContext from "../../context/CartContext";
+import AuthContext from "../../context/AuthContext";
+
 
 const CartSidebar = () => {
     const {
@@ -11,6 +13,9 @@ const CartSidebar = () => {
         isCartOpen,
         closeCart,
     } = useContext(CartContext);
+
+    const { user, setIsAuthOpen } = useContext(AuthContext);
+
 
     const total = cartItems.reduce(
         (sum, item) => sum + item.price * item.quantity,
@@ -40,7 +45,6 @@ const CartSidebar = () => {
                     </button>
                 </div>
 
-                {/* ← Я добавил ЭТУ строку */}
                 <div className="cart-top-line"></div>
 
                 {cartItems.length === 0 ? (
@@ -96,7 +100,23 @@ const CartSidebar = () => {
                                 <p className="total-value">{total} ₴</p>
                             </div>
 
-                            <button className="order-btn">Оформити замовлення</button>
+
+                            <button
+                                className="order-btn"
+                                onClick={() => {
+                                    if (!user) {
+                                        closeCart();
+                                        setIsAuthOpen(true);
+                                        return;
+                                    }
+
+                                    closeCart();
+
+                                    // navigate("/checkout") позже
+                                }}
+                            >
+                                Оформити замовлення
+                            </button>
                         </div>
                     </>
                 )}

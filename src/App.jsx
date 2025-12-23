@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/HomePage/Home";
 import Catalog from "./pages/Catalog/Catalog";
+import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Routes>
       </CartProvider>
     </AuthProvider>

@@ -91,16 +91,26 @@
     transition: 0.2s ease;
 }
 
-.product-card__icon:hover {
-    background: #f3f3f3;
+.product-card__icon svg {
+    font-size: 16px;
 }
 
+/* ❤️ wishlist active */
+.product-card__icon.heart.active {
+    background: #ffe6ea;
+    color: #e63946;
+    transform: scale(1.05);
+}
 
-.product-card__icon svg {
-    width: 18px;
-    height: 18px;
-    color: #333;
-    fill: #333;
+/* 🛒 cart added */
+.product-card__icon.cart.added {
+    background: #e6f6ee;
+    color: #2a9d8f;
+}
+
+/* hover */
+.product-card__icon:hover {
+    transform: scale(1.08);
 }
 
 

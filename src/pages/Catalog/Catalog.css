@@ -156,11 +156,12 @@
 @media (min-width: 1900px) and (max-width: 3500px) {
 
     .catalog-page {
-        padding: 60px 0;
+        overflow: hidden;
+        padding: 50px 0;
     }
 
     .catalog-hero {
-        height: 560px;
+        height: 550px;
         margin-bottom: 160px;
         border-radius: 28px;
     }
@@ -214,13 +215,16 @@
 
     /* Сетка товаров */
     .catalog-products {
-        grid-template-columns: repeat(4, 1fr);
-        /* +1 колонка */
+        grid-template-columns: repeat(fit, minmax(260px, 1fr));
+        flex: 1;
         gap: 40px;
     }
 
+
+
     /* Пагинация */
     .pagination button {
+
         padding: 14px 20px;
         font-size: 18px;
     }

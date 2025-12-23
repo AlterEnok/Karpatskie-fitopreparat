@@ -1,11 +1,22 @@
 import "./ProductCard.css";
-import { useContext } from "react";
+import { useContext, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
-import { FaHeart, FaShoppingBag } from "react-icons/fa";
+import AuthContext from "../../context/AuthContext";
+import { FaHeart, FaShoppingBag, FaCheck } from "react-icons/fa";
 
 function ProductCard({ product }) {
-    const { addToCart } = useContext(CartContext);
+    const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+    const { user, requireAuth } = useContext(AuthContext);
+
+    // ❤️ wishlist
+    const [liked, setLiked] = useState(false);
+
+    // 🛒 есть ли товар в корзине
+    const inCart = useMemo(
+        () => cartItems.some((item) => item.id === product.id),
+        [cartItems, product.id]
+    );
 
     return (
         <Link to={`/product/${product.id}`} className="product-card">
@@ -16,24 +27,44 @@ function ProductCard({ product }) {
             <h3 className="product-card__title">{product.title}</h3>
             <p className="product-card__subtitle">{product.subtitle}</p>
 
-            {/* Линия цена + овал */}
             <div className="product-card__line">
                 <div className="product-card__price">{product.price} грн</div>
 
                 <div className="product-card__floating">
-                    <button className="product-card__icon">
+
+                    {/* ❤️ WISHLIST */}
+                    <button
+                        className={`product-card__icon heart ${liked ? "active" : ""}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+
+                            if (!user) {
+                                requireAuth();
+                                return;
+                            }
+
+                            setLiked((prev) => !prev);
+                        }}
+                    >
                         <FaHeart />
                     </button>
 
+                    {/* 🛒 CART TOGGLE */}
                     <button
-                        className="product-card__icon"
+                        className={`product-card__icon cart ${inCart ? "added" : ""}`}
                         onClick={(e) => {
                             e.preventDefault();
-                            addToCart(product);
+
+                            if (inCart) {
+                                removeFromCart(product.id);
+                            } else {
+                                addToCart(product);
+                            }
                         }}
                     >
-                        <FaShoppingBag />
+                        {inCart ? <FaCheck /> : <FaShoppingBag />}
                     </button>
+
                 </div>
             </div>
 

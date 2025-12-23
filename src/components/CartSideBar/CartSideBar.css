@@ -300,7 +300,7 @@
 /* ---- 480px (большие телефоны: iPhone Pro Max и т.п.) ---- */
 @media (max-width: 480px) {
     .cart-sidebar {
-        /* width: 100%; */
+        width: 91%;
         max-width: 420px;
         padding: 18px;
     }
