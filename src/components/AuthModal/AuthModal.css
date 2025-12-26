@@ -1,14 +1,21 @@
 /* ---------- OVERLAY ---------- */
 .auth-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
     background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(6px);
-    z-index: 9999;
+    backdrop-filter: blur(4px);
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    z-index: 99999;
+    /* ВЫШЕ ВСЕГО */
 }
 
 /* ---------- MODAL ---------- */
@@ -172,7 +179,10 @@
     background: #f7f7f7;
 }
 
+
+
 /* ---------- MOBILE ---------- */
+
 @media (max-width: 480px) {
     .auth-modal {
         margin: 0 16px;
@@ -182,4 +192,6 @@
     .auth-tabs button {
         font-size: 15px;
     }
+
+
 }

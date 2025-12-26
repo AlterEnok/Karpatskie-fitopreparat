@@ -1,0 +1,196 @@
+.profile-page {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 16px;
+}
+
+/* ===== CARD ===== */
+.profile-card {
+    width: 100%;
+    max-width: 520px;
+    /* ⬅️ увеличили */
+    background: #aebdad;
+    border-radius: 32px;
+    padding: 40px 34px;
+    text-align: center;
+    animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 28px;
+}
+
+/* ===== FORM ===== */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.profile-section label {
+    text-align: left;
+    font-size: 14px;
+    color: #f1f1f1;
+    opacity: 0.9;
+}
+
+.profile-section input {
+    width: 90%;
+    background: #3f5d3c;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    text-align: left;
+}
+
+.profile-section input:disabled {
+    opacity: 0.85;
+}
+
+/* ===== PASSWORD ===== */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+.password-toggle:hover {
+    opacity: 1;
+}
+
+/* ===== BUTTONS ===== */
+.profile-edit-btn,
+.profile-save-btn {
+    margin-top: 28px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    background: #fff;
+    color: #045b21;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.profile-edit-btn:hover,
+.profile-save-btn:hover {
+    background: #365232;
+    color: #fff;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.profile-cancel-btn {
+    background: transparent;
+    border: none;
+    color: #2f4f2f;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.profile-badge {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 6px 24px;
+    border-radius: 999px;
+    background: #3f5d3c;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ===== reCAPTCHA ===== */
+.recaptcha-wrapper {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    transform: scale(0.95);
+    transform-origin: center;
+}
+
+/* ===== ADAPTIVE ===== */
+
+/* Большие экраны */
+@media (min-width: 1024px) {
+    .profile-card {
+        max-width: 580px;
+        padding: 46px 42px;
+    }
+
+    .profile-title {
+        font-size: 32px;
+    }
+}
+
+/* Обычные телефоны */
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 30px 22px;
+        border-radius: 26px;
+    }
+
+    .profile-title {
+        font-size: 24px;
+    }
+
+    .profile-section input {
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+
+    .recaptcha-wrapper {
+        transform: scale(0.85);
+    }
+}
+
+/* Очень маленькие телефоны */
+@media (max-width: 360px) {
+    .profile-title {
+        font-size: 22px;
+    }
+
+    .profile-section label {
+        font-size: 12px;
+    }
+}

@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import "./AuthModal.css";
 import AuthContext from "../../context/AuthContext";
 import googleIcon from "../../assets/google.png";
@@ -12,6 +13,19 @@ export default function AuthModal() {
     const [regPhone, setRegPhone] = useState("");
     const [regEmail, setRegEmail] = useState("");
     const [regPassword, setRegPassword] = useState("");
+
+    // 🔒 блокируем скролл страницы
+    useEffect(() => {
+        if (isAuthOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isAuthOpen]);
 
     if (!isAuthOpen) return null;
 
@@ -36,16 +50,15 @@ export default function AuthModal() {
             provider: "local",
         });
 
-        // очистка
         setRegName("");
         setRegPhone("");
         setRegEmail("");
         setRegPassword("");
     };
 
-    return (
+    return createPortal(
         <div className="auth-overlay" onClick={() => setIsAuthOpen(false)}>
-            <div className="auth-modal" onClick={e => e.stopPropagation()}>
+            <div className="auth-modal" onClick={(e) => e.stopPropagation()}>
 
                 {/* ===== TABS ===== */}
                 <div className="auth-tabs">
@@ -106,26 +119,26 @@ export default function AuthModal() {
                         <input
                             placeholder="Імʼя *"
                             value={regName}
-                            onChange={e => setRegName(e.target.value)}
+                            onChange={(e) => setRegName(e.target.value)}
                         />
 
                         <input
                             placeholder="Телефон (опц.)"
                             value={regPhone}
-                            onChange={e => setRegPhone(e.target.value)}
+                            onChange={(e) => setRegPhone(e.target.value)}
                         />
 
                         <input
                             placeholder="Електронна пошта"
                             value={regEmail}
-                            onChange={e => setRegEmail(e.target.value)}
+                            onChange={(e) => setRegEmail(e.target.value)}
                         />
 
                         <input
                             type="password"
                             placeholder="Пароль"
                             value={regPassword}
-                            onChange={e => setRegPassword(e.target.value)}
+                            onChange={(e) => setRegPassword(e.target.value)}
                         />
 
                         <button className="auth-primary" onClick={handleRegister}>
@@ -141,6 +154,7 @@ export default function AuthModal() {
                     </>
                 )}
             </div>
-        </div>
+        </div>,
+        document.body
     );
 }

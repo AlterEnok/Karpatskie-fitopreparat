@@ -7,28 +7,26 @@
     border-radius: 16px;
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.68);
-    overflow: visible;
+
     position: sticky;
     top: 0;
-    z-index: 999;
-    transition: transform 0.35s ease, opacity 0.25s ease;
+    z-index: 100;
+
+    transition: top 0.35s ease, opacity 0.25s ease;
 }
 
-/* СКРЫТЬ ХЕДЕР ВНИЗ */
 .header.scroll-down {
-    transform: translateY(-120%);
+    top: -140px;
     opacity: 0;
 }
 
-/* ПОКАЗАТЬ ХЕДЕР */
 .header.scroll-up {
-    transform: translateY(0);
+    top: 0;
     opacity: 1;
 }
 
-/* ВВЕРХУ — как обычно */
 .header.top {
-    transform: translateY(0);
+    top: 0;
     opacity: 1;
 }
 
@@ -428,6 +426,47 @@
 
 /* Header user */
 
+/* WishList */
+.header__wishlist {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header__wishlist .header__icon {
+    transition: color 0.3s ease;
+}
+
+.header__wishlist .header__icon.active {
+    color: #2f4f2f;
+}
+
+/* counter */
+.header__wishlist-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: #2f4f2f;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WishList */
+
+
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .user-modal__close {
+        right: 740px;
+    }
+}
 
 @media (max-width: 768px) {
     .header {
@@ -476,6 +515,11 @@
         font-size: 48px;
         letter-spacing: 10px;
     }
+
+    .menu-auth-btn {
+        font-size: clamp(15px, 4vw, 18px);
+    }
+
 }
 
 
@@ -540,6 +584,8 @@
         font-size: 18px;
         border-bottom-width: 6px;
     }
+
+
 }
 
 
@@ -557,7 +603,7 @@
     .header__logo img {
         height: 46px;
         transform: scale(1.87);
-        margin-left: -25px;
+        margin-left: 4px;
     }
 
     .header__icons {

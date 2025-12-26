@@ -3,6 +3,7 @@ import "./Header.css";
 import { FaRegHeart, FaSearch, FaUserCircle } from "react-icons/fa";
 import { RiShoppingBagLine, RiMenu3Line } from "react-icons/ri";
 import logo from "../../assets/logo.svg";
+import WishlistContext from "../../context/WishlistContext";
 import CartContext from "../../context/CartContext";
 import AuthContext from "../../context/AuthContext";
 import { Link } from "react-router-dom";
@@ -46,11 +47,13 @@ const Header = () => {
         };
     }, [menuOpen, userMenuOpen]);
 
-
+    const { wishlist } = useContext(WishlistContext);
+    const wishlistCount = wishlist.length;
 
 
     return (
         <>
+
             <header
                 className={`header 
                     ${scrollDirection === "down" ? "scroll-down" : ""} 
@@ -70,7 +73,17 @@ const Header = () => {
 
                 <div className="header__icons">
 
-                    <FaRegHeart className="header__icon" />
+                    <Link to="/wishlist" className="header__wishlist">
+                        <FaRegHeart className="header__icon" />
+
+                        {wishlistCount > 0 && (
+                            <span className="header__wishlist-count">
+                                {wishlistCount}
+                            </span>
+                        )}
+                    </Link>
+
+
 
                     {/* ===== USER ICON ===== */}
                     {user && (

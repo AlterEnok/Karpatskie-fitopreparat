@@ -1,21 +1,28 @@
 import "./ProductCard.css";
-import { useContext, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import AuthContext from "../../context/AuthContext";
+import WishlistContext from "../../context/WishlistContext";
 import { FaHeart, FaShoppingBag, FaCheck } from "react-icons/fa";
 
 function ProductCard({ product }) {
     const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
     const { user, requireAuth } = useContext(AuthContext);
+    const { wishlist, toggleWishlist } = useContext(WishlistContext);
 
-    // ❤️ wishlist
-    const [liked, setLiked] = useState(false);
+    const navigate = useNavigate();
 
-    // 🛒 есть ли товар в корзине
+
     const inCart = useMemo(
-        () => cartItems.some((item) => item.id === product.id),
+        () => cartItems.some(item => item.id === product.id),
         [cartItems, product.id]
+    );
+
+
+    const inWishlist = useMemo(
+        () => wishlist.some(item => item.id === product.id),
+        [wishlist, product.id]
     );
 
     return (
@@ -28,13 +35,15 @@ function ProductCard({ product }) {
             <p className="product-card__subtitle">{product.subtitle}</p>
 
             <div className="product-card__line">
-                <div className="product-card__price">{product.price} грн</div>
+                <div className="product-card__price">
+                    {product.price} грн
+                </div>
 
                 <div className="product-card__floating">
 
                     {/* ❤️ WISHLIST */}
                     <button
-                        className={`product-card__icon heart ${liked ? "active" : ""}`}
+                        className={`product-card__icon heart ${inWishlist ? "active" : ""}`}
                         onClick={(e) => {
                             e.preventDefault();
 
@@ -43,13 +52,13 @@ function ProductCard({ product }) {
                                 return;
                             }
 
-                            setLiked((prev) => !prev);
+                            toggleWishlist(product);
                         }}
                     >
                         <FaHeart />
                     </button>
 
-                    {/* 🛒 CART TOGGLE */}
+                    {/* 🛒 CART */}
                     <button
                         className={`product-card__icon cart ${inCart ? "added" : ""}`}
                         onClick={(e) => {
@@ -70,9 +79,12 @@ function ProductCard({ product }) {
 
             <button
                 className="product-card__details"
-                onClick={(e) => e.preventDefault()}
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/product/${product.id}`);
+                }}
             >
-                Детальніше
+                <span>Детальніше</span>
             </button>
         </Link>
     );

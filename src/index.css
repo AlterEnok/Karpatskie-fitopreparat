@@ -28,3 +28,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.page-wrapper>* {
+  animation: pageFade 1s ease-in-out;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

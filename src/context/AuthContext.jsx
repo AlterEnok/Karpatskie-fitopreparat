@@ -31,6 +31,21 @@ export const AuthProvider = ({ children }) => {
         callback?.();
     };
 
+    // ✅ ОБНОВЛЕНИЕ ДАННЫХ ПРОФИЛЯ
+    const updateUser = (updatedData) => {
+        setUser((prev) => {
+            if (!prev) return prev;
+
+            const newUser = {
+                ...prev,
+                ...updatedData,
+            };
+
+            localStorage.setItem("user", JSON.stringify(newUser));
+            return newUser;
+        });
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -40,6 +55,7 @@ export const AuthProvider = ({ children }) => {
                 isAuthOpen,
                 setIsAuthOpen,
                 requireAuth,
+                updateUser, // 👈 ВАЖНО
             }}
         >
             {children}
