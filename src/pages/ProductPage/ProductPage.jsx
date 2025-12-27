@@ -147,19 +147,35 @@ const ProductPage = () => {
                 </div>
 
 
+                {/* ---------- ВКЛАДКИ ---------- */}
+                <div className="tabs-container">
+                    <button
+                        className={`tab-btn ${activeTab === "description" ? "active" : ""}`}
+                        onClick={() => setActiveTab("description")}
+                    >
+                        Опис
+                    </button>
+
+                    <button
+                        className={`tab-btn ${activeTab === "usage" ? "active" : ""}`}
+                        onClick={() => setActiveTab("usage")}
+                    >
+                        Застосування
+                    </button>
+
+                    <button
+                        className={`tab-btn ${activeTab === "ingredients" ? "active" : ""}`}
+                        onClick={() => setActiveTab("ingredients")}
+                    >
+                        Склад
+                    </button>
+                </div>
+
                 {/* ---------- ОПИС ---------- */}
                 <div className="product-description">
-                    <h2>{product.title}</h2>
-                    <p className="product-sub">{product.subtitle}</p>
                     <p className="product-text">{getCurrentText()}</p>
                 </div>
 
-                {/* ---------- ВКЛАДКИ ---------- */}
-                <div className="tabs-container">
-                    <button className={`tab-btn ${activeTab === "description" ? "active" : ""}`} onClick={() => setActiveTab("description")}>Опис</button>
-                    <button className={`tab-btn ${activeTab === "usage" ? "active" : ""}`} onClick={() => setActiveTab("usage")}>Застосування</button>
-                    <button className={`tab-btn ${activeTab === "ingredients" ? "active" : ""}`} onClick={() => setActiveTab("ingredients")}>Склад</button>
-                </div>
 
 
 

@@ -217,10 +217,10 @@
 
 /* Блок ссылок */
 .menu-links {
-    margin-top: 80px;
+    margin-top: 84px;
     display: flex;
     flex-direction: column;
-    gap: 36px;
+    gap: 38px;
 }
 
 .menu-item {
@@ -247,11 +247,11 @@
 }
 
 .menu-item-text {
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 700;
     font-family: 'Montserrat Alternates';
-    letter-spacing: -0.02em;
-    line-height: 0.95;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
     transition: color .28s ease, transform .28s ease;
 }
 

@@ -62,8 +62,8 @@
     font-size: 22px;
     background: white;
     border: 2px solid #355d3d;
-    width: 40px;
-    height: 40px;
+    width: 66px;
+    height: 55px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -77,11 +77,11 @@
 }
 
 .left {
-    left: -20px;
+    left: -55px;
 }
 
 .right {
-    right: -20px;
+    right: -55px;
 }
 
 /* Кнопка Добавить */
@@ -208,13 +208,13 @@
     display: flex;
     justify-content: center;
     gap: 16px;
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 20px;
 }
 
 .tab-btn {
     flex: 1;
-    padding: 50px 0;
+    padding: 20px 0;
     background: white;
     border: 3px solid #d8e6d8;
     border-radius: 16px;
