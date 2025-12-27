@@ -50,7 +50,7 @@
     gap: 14px;
 }
 
-.arrow-btn {
+.arrow-btn.about {
     position: absolute;
     right: -25px;
     top: 50%;
@@ -68,7 +68,7 @@
 
 
 
-.arrow-btn:hover {
+.arrow-btn.about:hover {
     color: #355d3d;
     border: 5px solid #3d5f3e;
     opacity: 0.9;
@@ -177,7 +177,7 @@
         border-radius: 18px;
     }
 
-    .arrow-btn {
+    .arrow-btn.about {
         right: -15px;
         font-size: 16px;
         padding: 10px;
@@ -219,7 +219,7 @@
         border-radius: 16px;
     }
 
-    .arrow-btn {
+    .arrow-btn.about {
         top: 33%;
         width: 56px;
         height: 54px;
@@ -266,7 +266,7 @@
         border-radius: 16px;
     }
 
-    .arrow-btn {
+    .arrow-btn.about {
         top: 36%;
         right: -14px;
         padding: 8px;

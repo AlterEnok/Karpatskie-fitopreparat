@@ -61,7 +61,7 @@ const AboutSection = () => {
                         <p key={i}>{p}</p>
                     ))}
 
-                    <button className="arrow-btn" onClick={handleNext}>
+                    <button className="arrow-btn about" onClick={handleNext}>
                         <FaArrowRight />
                     </button>
                 </div>

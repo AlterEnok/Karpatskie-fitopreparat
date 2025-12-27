@@ -93,11 +93,11 @@ const ProductPage = () => {
                 {/* ---------- СЛАЙДЕР ТОВАРА ---------- */}
                 <div className="product-slider">
                     {/* кастомные стрелки */}
-                    <button className="arrow-btn left" ref={prevRef}>
+                    <button className="product-arrow-btn left" ref={prevRef}>
                         <FaArrowLeft />
                     </button>
 
-                    <button className="arrow-btn right" ref={nextRef}>
+                    <button className="product-arrow-btn right" ref={nextRef}>
                         <FaArrowRight />
                     </button>
 

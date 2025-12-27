@@ -55,7 +55,7 @@
 }
 
 /* Кнопки со стрелками */
-.arrow-btn {
+.product-arrow-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -72,7 +72,7 @@
     transition: 0.3s;
 }
 
-.arrow-btn:hover {
+.product-arrow-btn:hover {
     background: #e7f0e7;
 }
 
@@ -395,7 +395,7 @@
     }
 
     /* Стрелки товара */
-    .arrow-btn {
+    .product-arrow-btn {
         width: 56px;
         height: 56px;
         font-size: 26px;
@@ -555,7 +555,7 @@
         border-radius: 16px;
     }
 
-    .arrow-btn {
+    .product-arrow-btn {
         display: none;
     }
 
