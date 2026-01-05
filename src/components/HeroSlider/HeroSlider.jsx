@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -16,7 +17,7 @@ const HeroSlider = () => {
                 <Swiper
                     modules={[Autoplay, EffectFade]}
                     loop={true}
-                    speed={1800} // плавная смена слайдов
+                    speed={1800}
                     autoplay={{
                         delay: 4500,
                         disableOnInteraction: false,
@@ -55,7 +56,9 @@ const HeroSlider = () => {
             </div>
 
             <div className="hero__cta">
-                <button className="hero__cta-btn">До Каталогу</button>
+                <Link to="/catalog" className="hero__cta-btn">
+                    До Каталогу
+                </Link>
             </div>
         </section>
     );

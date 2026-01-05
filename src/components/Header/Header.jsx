@@ -6,6 +6,7 @@ import logo from "../../assets/logo.svg";
 import WishlistContext from "../../context/WishlistContext";
 import CartContext from "../../context/CartContext";
 import AuthContext from "../../context/AuthContext";
+import { products } from "../../data/products";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -17,6 +18,12 @@ const Header = () => {
 
     const { toggleCart, cartItems } = useContext(CartContext);
     const { user, setIsAuthOpen, logout } = useContext(AuthContext);
+
+    // ПОИСКОВИК
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
+
+
 
     const cartCount = cartItems.reduce((sum, i) => sum + i.quantity, 0);
 
@@ -38,18 +45,64 @@ const Header = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
+
     useEffect(() => {
-        document.body.style.overflow =
-            menuOpen || userMenuOpen ? "hidden" : "auto";
+        if (menuOpen || userMenuOpen || searchOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
 
         return () => {
             document.body.style.overflow = "auto";
         };
-    }, [menuOpen, userMenuOpen]);
+    }, [menuOpen, userMenuOpen, searchOpen]);
+
+
+
 
     const { wishlist } = useContext(WishlistContext);
     const wishlistCount = wishlist.length;
+    const scrollY = useRef(0);
 
+    useEffect(() => {
+        if (menuOpen || userMenuOpen) {
+            scrollY.current = window.scrollY;
+
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY.current}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.width = "100%";
+        } else {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
+            document.body.style.width = "";
+
+            window.scrollTo(0, scrollY.current);
+        }
+
+        return () => {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, scrollY.current);
+        };
+    }, [menuOpen, userMenuOpen]);
+
+    // ПОИСКОВИК
+
+
+    const filteredProducts = products.filter(p =>
+        p.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    const closeSearch = () => {
+        setSearchOpen(false);
+        setSearchValue("");
+    };
 
     return (
         <>
@@ -61,9 +114,83 @@ const Header = () => {
                 `}
             >
                 <div className="header__search">
-                    <input type="text" placeholder="Пошук..." />
+                    <input
+                        type="text"
+                        placeholder="Пошук..."
+                        onFocus={() => setSearchOpen(true)}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                    />
                     <FaSearch className="header__search-icon" />
+
+                    {searchOpen && (
+                        <div
+                            className="search-overlay"
+                            onClick={closeSearch}
+                        >
+                            <div
+                                className="search-modal"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                {/* КРЕСТИК */}
+                                <button
+                                    className="search-close"
+                                    onClick={closeSearch}
+                                    aria-label="Close search"
+                                >
+                                    ×
+                                </button>
+
+                                <input
+                                    className="search-modal__input"
+                                    type="text"
+                                    autoFocus
+                                    placeholder="Введіть назву товару"
+                                    value={searchValue}
+                                    onChange={(e) => setSearchValue(e.target.value)}
+                                />
+
+                                {searchValue.length < 2 && (
+                                    <div className="search-hint">
+                                        Почніть вводити назву товару
+                                    </div>
+                                )}
+
+                                {searchValue.length >= 2 && filteredProducts.length === 0 && (
+                                    <div className="search-empty">
+                                        Нічого не знайдено
+                                    </div>
+                                )}
+
+                                {searchValue.length >= 2 && (
+                                    <div className="search-results">
+                                        {filteredProducts.slice(0, 5).map(product => (
+                                            <Link
+                                                key={product.id}
+                                                to={`/product/${product.id}`}
+                                                className="search-item"
+                                                onClick={closeSearch}
+                                            >
+                                                <img src={product.image} alt={product.title} />
+                                                <div className="search-item__info">
+                                                    <div className="search-item__title">
+                                                        {product.title}
+                                                    </div>
+                                                    <div className="search-item__price">
+                                                        {product.price} грн
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
+
+
+
 
                 <div className="header__logo">
                     <Link to="/">

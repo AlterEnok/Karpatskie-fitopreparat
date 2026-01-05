@@ -6,6 +6,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import CartContext from "../../context/CartContext";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import products from "../../data/products";
 import Footer from "../../components/Footer/Footer";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -59,12 +60,8 @@ const ProductPage = () => {
 
     /* ---------- СХОЖІ ТОВАРИ ---------- */
 
-    const similarProducts = [
-        { id: 1, title: "Антивірин", price: 1890, image: productImg1 },
-        { id: 2, title: "Фітобаланс", price: 1590, image: productImg1 },
-        { id: 3, title: "Енергія", price: 1390, image: productImg1 },
-        { id: 4, title: "БіоХелп", price: 1690, image: productImg1 },
-    ];
+    const similarProducts = products.slice(0, 5);
+
 
     /** 🔑 ВАЖНО: подключаем стрелки ПОСЛЕ init */
     useEffect(() => {

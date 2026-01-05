@@ -29,10 +29,10 @@ const Footer = () => {
                     <div className="footer__column">
                         <h3>Правова інформація</h3>
                         <ul>
-                            <li><Link to="/return-policy">Повернення та обмін</Link></li>
+                            <li><Link to="/offer">Публічна оферта</Link></li>
+                            <li><Link to="/return">Повернення та обмін</Link></li>
                             <li><Link to="/certificates">Сертифікати</Link></li>
                             <li><Link to="/privacy-policy">Політика конфіденційності</Link></li>
-                            <li><Link to="/terms">Умови використання</Link></li>
                         </ul>
                     </div>
 

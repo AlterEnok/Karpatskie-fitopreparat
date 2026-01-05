@@ -14,10 +14,22 @@ import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import WishlistPage from "./pages/WishlistPage/WishlistPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+
+import SuccessPage from "./pages/SuccessPage/SuccessPage";
+import FailurePage from "./pages/FailurePage/FailurePage";
+
+import PublicOffer from "./pages/PublicOffer/PublicOffer";
+import ReturnPage from "./pages/ReturnPage/ReturnPage";
+import CertificatesPage from "./pages/CertificatesPage/CertificatesPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage/PrivacyPolicyPage";
+
+
+
 
 
 function App() {
-  const location = useLocation(); // ← ВАЖНО
+  const location = useLocation();
 
   return (
     <AuthProvider>
@@ -29,7 +41,6 @@ function App() {
           <AuthModal />
           <CartSidebar />
 
-          {/* 🔥 ТОЛЬКО ЭТО ДОБАВИЛИ */}
           <div className="page-wrapper">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
@@ -38,6 +49,14 @@ function App() {
               <Route path="/contacts" element={<ContactsPage />} />
               <Route path="/wishlist" element={<WishlistPage />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/success" element={<SuccessPage />} />
+              <Route path="/failure" element={<FailurePage />} />
+              <Route path="/offer" element={<PublicOffer />} />
+              <Route path="/return" element={<ReturnPage />} />
+              <Route path="/certificates" element={<CertificatesPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+
 
             </Routes>
           </div>

@@ -1,5 +1,6 @@
 import "./CartSidebar.css";
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import AuthContext from "../../context/AuthContext";
 
@@ -21,6 +22,9 @@ const CartSidebar = () => {
         (sum, item) => sum + item.price * item.quantity,
         0
     );
+
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         document.body.style.overflow = isCartOpen ? "hidden" : "";
@@ -111,12 +115,12 @@ const CartSidebar = () => {
                                     }
 
                                     closeCart();
-
-                                    // navigate("/checkout") позже
+                                    navigate("/checkout");
                                 }}
                             >
                                 Оформити замовлення
                             </button>
+
                         </div>
                     </>
                 )}

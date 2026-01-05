@@ -1,0 +1,98 @@
+.failure-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+    background: #f6f7f6;
+}
+
+.failure-box {
+    background: #fff;
+    max-width: 460px;
+    width: 100%;
+    border-radius: 24px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.failure-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(211, 47, 47, 0.1);
+    color: #d32f2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 34px;
+    margin: 0 auto 20px;
+}
+
+.failure-box h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #2f2f2f;
+}
+
+.failure-subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+.failure-note {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.failure-actions {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.failure-btn {
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.failure-btn.primary {
+    background: linear-gradient(135deg, #d32f2f, #ef5350);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.35);
+}
+
+.failure-btn.primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px rgba(211, 47, 47, 0.45);
+}
+
+.failure-btn.secondary {
+    background: #f2f2f2;
+    color: #333;
+}
+
+.failure-btn.secondary:hover {
+    background: #e6e6e6;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .failure-box {
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    .failure-box h1 {
+        font-size: 22px;
+    }
+}

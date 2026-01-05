@@ -1,0 +1,70 @@
+.privacy-page {
+    padding: 120px 20px 60px;
+}
+
+.privacy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #259f21;
+    line-height: 1.7;
+}
+
+.privacy-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.privacy-subtitle {
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.privacy-container h2 {
+    margin-top: 40px;
+    font-size: 22px;
+}
+
+.privacy-container ul {
+    padding-left: 20px;
+    margin: 16px 0;
+}
+
+.privacy-container li {
+    margin-bottom: 8px;
+}
+
+/* WIDE SCREENS */
+@media (min-width: 1900px) and (max-width: 3500px) {
+    .privacy-page {
+        padding: 160px 40px 100px;
+    }
+
+    .privacy-container {
+        max-width: 1200px;
+        line-height: 1.85;
+    }
+
+    .privacy-container h1 {
+        font-size: 44px;
+        margin-bottom: 16px;
+    }
+
+    .privacy-subtitle {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .privacy-container h2 {
+        font-size: 28px;
+        margin-top: 60px;
+    }
+
+    .privacy-container p,
+    .privacy-container li {
+        font-size: 18px;
+    }
+
+    .privacy-container ul {
+        padding-left: 26px;
+    }
+}

@@ -21,15 +21,25 @@ export default function ContactsPage() {
 
                         {/* Instagram / TikTok */}
                         <div className="contacts-social-wrapper">
-                            <a className="social-btn" href="#">
+                            <a
+                                className="social-btn"
+                                href="https://www.instagram.com/olena.drabyk?igsh=MWE1bTgwNnJjZ21qbg%3D%3D&utm_source=qr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <span>Інстаграм</span>
                                 <span className="icon-circle">
                                     <FaInstagram />
                                 </span>
                             </a>
 
-                            <a className="social-btn" href="#">
-                                <span>Tik-tok</span>
+                            <a
+                                className="social-btn"
+                                href="https://www.tiktok.com/@olena_drabyk?_r=1&_t=ZM-92f0GctEd4t"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>TikTok</span>
                                 <span className="icon-circle">
                                     <FaTiktok />
                                 </span>
@@ -38,14 +48,26 @@ export default function ContactsPage() {
 
                         {/* Telegram */}
                         <div className="contacts-social-wrapper">
-                            <a className="social-btn small" href="#">
-                                <span>Телеграм канал <br /> про здоровʼя</span>
+                            <a
+                                className="social-btn small"
+                                href="https://t.me/+Ajg7wJYDYw01ZjZi"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <span>
+                                    Телеграм канал <br /> про здоровʼя
+                                </span>
                                 <span className="icon-circle">
                                     <FaTelegramPlane />
                                 </span>
                             </a>
 
-                            <a className="social-btn small" href="#">
+                            <a
+                                className="social-btn small"
+                                href="https://t.me/Olena_Drabyk"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <span>@Olena_Drabyk</span>
                                 <span className="icon-circle">
                                     <FaTelegramPlane />

@@ -1,44 +1,25 @@
 import "./PopularProductsSection.css";
 import ProductCard from "../ProductCard/ProductCard";
-import productImg from "../../assets/product1.png"; // поставишь своё фото
-
-const products = [
-    {
-        id: 1,
-        title: "Антивірин Муршине дерево",
-        subtitle: "Протидія вірусам та простуді",
-        price: 1890,
-        image: productImg,
-    },
-    {
-        id: 2,
-        title: "Антивірин Муршине дерево",
-        subtitle: "Протидія вірусам та простуді",
-        price: 1890,
-        image: productImg,
-    },
-    {
-        id: 3,
-        title: "Антивірин Муршине дерево",
-        subtitle: "Протидія вірусам та простуді",
-        price: 1890,
-        image: productImg,
-    },
-];
+import { products } from "../../data/products";
+import { Link } from "react-router-dom";
 
 function PopularProductsSection() {
+    const popularProducts = products.slice(0, 3); // ← ТОЛЬКО 3
+
     return (
         <section className="popular">
             <h2 className="popular__title">Актуальні пропозиції</h2>
 
             <div className="popular__grid">
-                {products.map((p) => (
-                    <ProductCard key={p.id} product={p} />
+                {popularProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </div>
 
             <div className="popular__button-wrapper">
-                <a href="/catalog" className="popular__button">Побачити все</a>
+                <Link to="/catalog" className="popular__button">
+                    Побачити все
+                </Link>
             </div>
         </section>
     );

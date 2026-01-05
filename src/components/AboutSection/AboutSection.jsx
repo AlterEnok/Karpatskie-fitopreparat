@@ -66,7 +66,7 @@ const AboutSection = () => {
                     </button>
                 </div>
 
-                <a href="#" className="main-btn-link">
+                <a href="https://t.me/+Ajg7wJYDYw01ZjZi" className="main-btn-link">
                     Консультація
                 </a>
             </div>
