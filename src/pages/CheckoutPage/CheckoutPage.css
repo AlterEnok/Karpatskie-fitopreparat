@@ -243,7 +243,7 @@
         padding: 24px 16px;
     }
 
-    /* 👇 ВАЖНО: меняем порядок */
+
     .checkout-summary {
         order: -1;
     }
@@ -265,6 +265,7 @@
 
     .checkout-form input,
     .checkout-form select {
+        width: 88%;
         font-size: 16px;
         padding: 12px 16px;
     }

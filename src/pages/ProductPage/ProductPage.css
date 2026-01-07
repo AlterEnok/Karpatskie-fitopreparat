@@ -396,17 +396,17 @@
 
     /* Стрелки товара */
     .product-arrow-btn {
-        width: 56px;
-        height: 56px;
+        width: 86px;
+        height: 66px;
         font-size: 26px;
     }
 
     .left {
-        left: -30px;
+        left: -50px;
     }
 
     .right {
-        right: -30px;
+        right: -50px;
     }
 
     /* Кнопка */
