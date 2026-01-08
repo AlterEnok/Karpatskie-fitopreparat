@@ -113,14 +113,7 @@
     color: #fff;
 }
 
-/* .filter-more {
-    margin-top: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #3d5f3e;
-    font-weight: 500;
-} */
+
 
 .filter-more {
     display: flex;
@@ -344,6 +337,11 @@
         width: 90%;
     }
 
+    .category-item,
+    .category-item a {
+        color: #1a1a1a !important;
+    }
+
     .catalog-slider {
         height: 220px;
     }
@@ -393,6 +391,11 @@
     .catalog-filter {
         padding: 12px;
     }
+
+    .category-item,
+    .category-item a {
+        color: #1a1a1a !important;
+    }
 }
 
 
@@ -437,5 +440,10 @@
 
     .catalog-filter {
         padding: 10px;
+    }
+
+    .category-item,
+    .category-item a {
+        color: #1a1a1a !important;
     }
 }

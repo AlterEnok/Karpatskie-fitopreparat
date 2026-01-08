@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
 
             <div className="footer__bottom">
-                © Карпатські фітопрепарати. 2025. Усі права захищені.
+                © Карпатські фітопрепарати. 2026. Усі права захищені.
                 Розроблено студією <a href="https://www.novateamweb.com" target="_blank" rel="noreferrer">NovaTeam</a>.
             </div>
         </footer>

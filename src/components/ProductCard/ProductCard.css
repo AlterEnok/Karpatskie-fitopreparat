@@ -252,3 +252,25 @@
         border-radius: 28px;
     }
 }
+
+@media (max-width: 767px) {
+    .product-card {
+        color: #1a1a1a;
+    }
+
+    .product-card__icon {
+        color: #1a1a1a;
+    }
+
+    .product-card__icon svg {
+        fill: currentColor;
+    }
+
+    .product-card__icon.heart.active {
+        color: #c62828;
+    }
+
+    .product-card__icon.cart.added {
+        color: #2e7d32;
+    }
+}
