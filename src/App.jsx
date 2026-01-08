@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 import { WishlistProvider } from "./context/WishlistContext";
@@ -5,6 +7,7 @@ import AuthModal from "./components/AuthModal/AuthModal";
 import CartSidebar from "./components/CartSideBar/CartSideBar";
 import Header from "./components/Header/Header";
 import ScrollToTop from "./ScrollToTop";
+import Preloader from "./components/Preloader/Preloader";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -30,39 +33,42 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage/PrivacyPolicyPage";
 
 function App() {
   const location = useLocation();
+  const [loading, setLoading] = useState(true);
 
   return (
-    <AuthProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <ScrollToTop />
+    <>
+      {loading && <Preloader onFinish={() => setLoading(false)} />}
 
-          <Header />
-          <AuthModal />
-          <CartSidebar />
+      <AuthProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <ScrollToTop />
 
-          <div className="page-wrapper">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/catalog" element={<Catalog />} />
-              <Route path="/product/:id" element={<ProductPage />} />
-              <Route path="/contacts" element={<ContactsPage />} />
-              <Route path="/wishlist" element={<WishlistPage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/success" element={<SuccessPage />} />
-              <Route path="/failure" element={<FailurePage />} />
-              <Route path="/offer" element={<PublicOffer />} />
-              <Route path="/return" element={<ReturnPage />} />
-              <Route path="/certificates" element={<CertificatesPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Header />
+            <AuthModal />
+            <CartSidebar />
 
-
-            </Routes>
-          </div>
-        </WishlistProvider>
-      </CartProvider>
-    </AuthProvider>
+            <div className="page-wrapper">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/catalog" element={<Catalog />} />
+                <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/contacts" element={<ContactsPage />} />
+                <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/success" element={<SuccessPage />} />
+                <Route path="/failure" element={<FailurePage />} />
+                <Route path="/offer" element={<PublicOffer />} />
+                <Route path="/return" element={<ReturnPage />} />
+                <Route path="/certificates" element={<CertificatesPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              </Routes>
+            </div>
+          </WishlistProvider>
+        </CartProvider>
+      </AuthProvider>
+    </>
   );
 }
 

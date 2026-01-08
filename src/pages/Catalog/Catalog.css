@@ -113,13 +113,33 @@
     color: #fff;
 }
 
-.filter-more {
+/* .filter-more {
     margin-top: 6px;
     background: none;
     border: none;
     cursor: pointer;
     color: #3d5f3e;
     font-weight: 500;
+} */
+
+.filter-more {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #3f5f3f;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.filter-more .arrow {
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    margin-top: 2px;
 }
 
 /* ================= PRODUCT GRID ================= */

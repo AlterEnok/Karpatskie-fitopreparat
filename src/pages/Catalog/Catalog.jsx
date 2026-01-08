@@ -121,7 +121,8 @@ function Catalog() {
                                 className="filter-more"
                                 onClick={() => setShowAllCats(true)}
                             >
-                                ▶ Показати всі категорії
+                                Показати всі категорії
+                                <span className="arrow" />
                             </button>
                         )}
 
