@@ -442,8 +442,13 @@
         padding: 10px;
     }
 
-    .category-item,
-    .category-item a {
+    .categories button {
         color: #1a1a1a !important;
+    }
+
+    .category-item:focus,
+    .category-item:active {
+        color: #1a1a1a;
+        outline: none;
     }
 }
