@@ -1,7 +1,10 @@
 import "./PublicOffer.css";
 import Footer from "../../components/Footer/Footer";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const PublicOffer = () => {
+    usePageTitle("Публічний договір оферти");
+
     return (
         <>
             <div className="offer-page fade-page">

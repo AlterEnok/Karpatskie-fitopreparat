@@ -5,11 +5,14 @@ import { FaHeartBroken } from "react-icons/fa";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Footer from "../../components/Footer/Footer";
 import "./WishlistPage.css";
+import usePageTitle from "../../hooks/usePageTitle";
 
 export default function WishlistPage() {
+    usePageTitle("Список бажань ");
+
     const { wishlist } = useContext(WishlistContext);
 
-    // 🟢 если пусто
+
     if (wishlist.length === 0) {
         return (
             <>

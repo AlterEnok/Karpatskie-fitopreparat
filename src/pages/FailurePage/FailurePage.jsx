@@ -2,10 +2,12 @@ import { useLocation, Link } from "react-router-dom";
 import { FaTimesCircle } from "react-icons/fa";
 import Footer from "../../components/Footer/Footer";
 import "./FailurePage.css";
+import usePageTitle from "../../hooks/usePageTitle";
 
 export default function FailurePage() {
     const location = useLocation();
     const state = location.state;
+    usePageTitle("Помилка оформлення замовлення");
 
     return (
         <>

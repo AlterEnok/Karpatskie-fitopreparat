@@ -3,9 +3,11 @@ import CategoriesSection from "../../components/CategoriesSection/CategoriesSect
 import PopularProductsSection from "../../components/PopularProductsSection/PopularProductsSection";
 import AboutSection from "../../components/AboutSection/AboutSection";
 import Footer from "../../components/Footer/Footer";
-
+import usePageTitle from "../../hooks/usePageTitle";
 
 const Home = () => {
+    usePageTitle("Головна");
+
     return (
         <>
             <HeroSlider />

@@ -1,7 +1,9 @@
 import "./ReturnPage.css";
 import Footer from "../../components/Footer/Footer";
+import usePageTitle from "../../hooks/usePageTitle";
 
 export default function ReturnPage() {
+    usePageTitle("Повернення та обмін");
     return (
         <>
             <div className="return-page">

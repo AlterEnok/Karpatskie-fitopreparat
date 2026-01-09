@@ -1,7 +1,8 @@
 import "./PrivacyPolicyPage.css";
 import Footer from "../../components/Footer/Footer";
-
+import usePageTitle from "../../hooks/usePageTitle";
 export default function PrivacyPolicyPage() {
+    usePageTitle("Політика конфіденційності");
     return (
         <>
             <div className="privacy-page">

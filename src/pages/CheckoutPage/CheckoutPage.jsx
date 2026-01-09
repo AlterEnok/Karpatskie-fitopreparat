@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 import "./CheckoutPage.css";
 import Footer from "../../components/Footer/Footer";
-
+import usePageTitle from "../../hooks/usePageTitle";
 
 const NOVA_API_KEY = "21241d3fdd6d054f8d1ded4eee99c437";
 
 export default function CheckoutPage() {
+    usePageTitle("Оформлення замовлення ");
+
     const navigate = useNavigate();
     const { cartItems, clearCart } = useCart();
 

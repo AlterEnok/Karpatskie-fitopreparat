@@ -4,10 +4,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Footer from "../../components/Footer/Footer"; // ⬅️ футер
 import "./ProfilePage.css";
+import usePageTitle from "../../hooks/usePageTitle";
 
 const RECAPTCHA_SITE_KEY = "6Lfx_TYsAAAAAKKZR16bUgUvM8lm6z2LDdvvRPob";
 
 export default function ProfilePage() {
+    usePageTitle("Профіль ");
+
     const { user, updateUser } = useContext(AuthContext);
 
     const [editMode, setEditMode] = useState(false);

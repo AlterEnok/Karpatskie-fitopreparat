@@ -2,8 +2,10 @@ import { FaInstagram, FaTiktok, FaTelegramPlane, FaPhoneAlt } from "react-icons/
 import "./ContactsPage.css";
 import contactsImg from "../../assets/contacts-nature.jpg";
 import Footer from "../../components/Footer/Footer";
-
+import usePageTitle from "../../hooks/usePageTitle";
 export default function ContactsPage() {
+    usePageTitle("Контакти");
+
     return (
         <>
             <div className="contacts-page">

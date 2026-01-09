@@ -1,10 +1,12 @@
 import "./CertificatesPage.css";
 import Footer from "../../components/Footer/Footer";
+import usePageTitle from "../../hooks/usePageTitle";
 
 import cert1 from "../../assets/cert-1.jpg";
 import cert2 from "../../assets/cert-2.jpg";
 
 export default function CertificatesPage() {
+    usePageTitle("Сертифікати");
     return (
         <>
             <div className="cert-page">

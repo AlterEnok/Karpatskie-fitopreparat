@@ -337,9 +337,23 @@
         width: 90%;
     }
 
-    .category-item,
-    .category-item a {
+    .category-item {
         color: #1a1a1a !important;
+        background: transparent;
+        border: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .categories button {
+        color: #1a1a1a !important;
+    }
+
+    .category-item:focus,
+    .category-item:active {
+        color: #1a1a1a;
+        outline: none;
     }
 
     .catalog-slider {
@@ -392,9 +406,23 @@
         padding: 12px;
     }
 
-    .category-item,
-    .category-item a {
+    .category-item {
         color: #1a1a1a !important;
+        background: transparent;
+        border: none;
+        appearance: none;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .categories button {
+        color: #1a1a1a !important;
+    }
+
+    .category-item:focus,
+    .category-item:active {
+        color: #1a1a1a;
+        outline: none;
     }
 }
 

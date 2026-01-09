@@ -2,10 +2,12 @@ import { useLocation, Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 import Footer from "../../components/Footer/Footer";
 import "./SuccessPage.css";
+import usePageTitle from "../../hooks/usePageTitle";
 
 export default function SuccessPage() {
     const location = useLocation();
     const state = location.state;
+    usePageTitle("Замовлення успішно оформлено");
 
     return (
         <>

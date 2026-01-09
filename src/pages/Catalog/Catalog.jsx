@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useRef } from "react";
 import "./Catalog.css";
-
+import usePageTitle from "../../hooks/usePageTitle";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Footer from "../../components/Footer/Footer";
 
@@ -62,8 +62,12 @@ function Catalog() {
     const nextPage = () => page < totalPages && goToPage(page + 1);
     const prevPage = () => page > 1 && goToPage(page - 1);
 
+    usePageTitle("Каталог | фітопрепаратів");
     return (
+
+
         <>
+
             <div className="catalog-page fade-page">
 
                 {/* HERO */}
