@@ -15,22 +15,8 @@
     transition: top 0.35s ease, opacity 0.25s ease;
 }
 
-.header.scroll-down {
-    top: -140px;
-    opacity: 0;
-}
 
-.header.scroll-up {
-    top: 0;
-    opacity: 1;
-}
 
-.header.top {
-    top: 0;
-    opacity: 1;
-}
-
-/* SEARCH */
 .header__search {
     position: relative;
 }
@@ -73,7 +59,6 @@
 /* ===== MODAL ===== */
 .search-modal {
     position: relative;
-    /* ← ВАЖНО */
     width: 480px;
     background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
     border-radius: 24px;
@@ -177,7 +162,7 @@
     color: #777;
 }
 
-/* ===== ANIMATIONS ===== */
+
 @keyframes modalAppear {
     from {
         opacity: 0;
@@ -385,7 +370,7 @@
     background: #0E7A0D;
 }
 
-/* Блок ссылок */
+
 .menu-links {
     margin-top: 84px;
     display: flex;
@@ -449,7 +434,7 @@
     background: #b7d3b9;
 }
 
-/* Email — теперь активная ссылка */
+
 .menu-email {
     margin-top: 42px;
     font-size: 24px;
@@ -519,7 +504,7 @@
     animation: slideDown .35s ease;
 }
 
-/* ANIMATION */
+
 @keyframes slideDown {
     from {
         transform: translateY(-40px);
@@ -637,10 +622,7 @@
         right: 740px;
     }
 
-    /* .search-close {
-        top: 420px;
-        right: 710px;
-    } */
+
 }
 
 @media (max-width: 768px) {
@@ -652,8 +634,6 @@
         width: 140px;
         font-size: 13px;
     }
-
-
 
 
     .header__logo img {
@@ -673,7 +653,7 @@
         width: 380px;
     }
 
-    /* wishlist */
+
     .header__wishlist-count {
         top: -14px;
         right: -9px;
@@ -681,7 +661,6 @@
         height: 16px;
     }
 
-    /* header count*/
 
     .header__cart-count {
         top: -14px;
@@ -716,7 +695,7 @@
 }
 
 
-/* --- 576px (обычные телефоны) --- */
+
 @media (max-width: 576px) {
     .header__search input {
         width: 79px;
@@ -782,7 +761,7 @@
 }
 
 
-/* --- 420px (маленькие телефоны) --- */
+
 @media (max-width: 420px) {
     .header {
         padding: 8px 14px;
@@ -851,7 +830,7 @@
 }
 
 
-/* --- 360px (очень маленькие телефоны) --- */
+
 @media (max-width: 360px) {
     .header__search input {
         width: 85px;

@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 }
 
-/* Уменьшено: стало компактнее и аккуратнее */
+
 .category-card {
     text-align: center;
     width: 180px;
@@ -41,7 +41,7 @@
     color: #184d26;
 }
 
-/* ===== Анимация появления только при скролле ===== */
+
 .fade-up {
     opacity: 0;
     transform: translateY(25px);
@@ -60,7 +60,7 @@
     transition-delay: 0.45s;
 }
 
-/* класс, добавляемый когда в зоне видимости */
+
 .visible {
     opacity: 1;
     transform: translateY(0);

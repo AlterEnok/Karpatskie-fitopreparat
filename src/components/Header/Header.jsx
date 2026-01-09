@@ -10,8 +10,7 @@ import { products } from "../../data/products";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-    const [scrollDirection, setScrollDirection] = useState("top");
-    const lastScroll = useRef(0);
+
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -32,18 +31,7 @@ const Header = () => {
         setIsAuthOpen(true);
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const current = window.scrollY;
-            if (current <= 20) setScrollDirection("top");
-            else if (current > lastScroll.current) setScrollDirection("down");
-            else setScrollDirection("up");
-            lastScroll.current = current;
-        };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
 
 
@@ -92,7 +80,7 @@ const Header = () => {
         };
     }, [menuOpen, userMenuOpen]);
 
-    // ПОИСКОВИК
+
 
 
     const filteredProducts = products.filter(p =>
@@ -109,8 +97,7 @@ const Header = () => {
 
             <header
                 className={`header 
-                    ${scrollDirection === "down" ? "scroll-down" : ""} 
-                    ${scrollDirection === "up" ? "scroll-up" : ""}
+                    
                 `}
             >
                 <div className="header__search">
@@ -132,7 +119,7 @@ const Header = () => {
                                 className="search-modal"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                {/* КРЕСТИК */}
+
                                 <button
                                     className="search-close"
                                     onClick={closeSearch}
@@ -229,7 +216,7 @@ const Header = () => {
                                         className="user-modal"
                                         onClick={(e) => e.stopPropagation()}
                                     >
-                                        {/* ✕ CLOSE */}
+
                                         <button
                                             className="user-modal__close"
                                             onClick={() => setUserMenuOpen(false)}

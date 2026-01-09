@@ -34,7 +34,7 @@ export default function WishlistPage() {
         );
     }
 
-    // 🟢 если есть товары
+
     return (
         <>
             <div className="wishlist-page">

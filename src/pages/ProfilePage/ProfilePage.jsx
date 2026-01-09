@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import ReCAPTCHA from "react-google-recaptcha";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Footer from "../../components/Footer/Footer"; // ⬅️ футер
+import Footer from "../../components/Footer/Footer";
 import "./ProfilePage.css";
 import usePageTitle from "../../hooks/usePageTitle";
 

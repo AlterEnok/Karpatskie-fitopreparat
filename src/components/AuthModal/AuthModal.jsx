@@ -14,7 +14,7 @@ export default function AuthModal() {
     const [regEmail, setRegEmail] = useState("");
     const [regPassword, setRegPassword] = useState("");
 
-    // 🔒 блокируем скролл страницы
+
     useEffect(() => {
         if (isAuthOpen) {
             document.body.style.overflow = "hidden";

@@ -10,7 +10,6 @@
 .profile-card {
     width: 100%;
     max-width: 520px;
-    /* ⬅️ увеличили */
     background: #aebdad;
     border-radius: 32px;
     padding: 40px 34px;
@@ -151,7 +150,7 @@
 
 /* ===== ADAPTIVE ===== */
 
-/* Большие экраны */
+
 @media (min-width: 1024px) {
     .profile-card {
         max-width: 580px;
@@ -163,7 +162,7 @@
     }
 }
 
-/* Обычные телефоны */
+
 @media (max-width: 480px) {
     .profile-card {
         padding: 30px 22px;
@@ -184,7 +183,7 @@
     }
 }
 
-/* Очень маленькие телефоны */
+
 @media (max-width: 360px) {
     .profile-title {
         font-size: 22px;

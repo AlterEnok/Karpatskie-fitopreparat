@@ -130,19 +130,19 @@
     user-select: none;
 }
 
-/* скрываем радио */
+
 .payment-switch input,
 .delivery-switch input {
     display: none;
 }
 
-/* hover */
+
 .payment-switch label:hover,
 .delivery-switch label:hover {
     background: #ececec;
 }
 
-/* ACTIVE */
+
 .payment-switch label.active,
 .delivery-switch label.active {
     background: linear-gradient(135deg, #2e7d32, #4caf50);
@@ -152,7 +152,7 @@
     transform: translateY(-1px);
 }
 
-/* маленький эффект нажатия */
+
 .payment-switch label.active:active,
 .delivery-switch label.active:active {
     transform: scale(0.98);

@@ -4,7 +4,7 @@ import { products } from "../../data/products";
 import { Link } from "react-router-dom";
 
 function PopularProductsSection() {
-    const popularProducts = products.slice(0, 3); // ← ТОЛЬКО 3
+    const popularProducts = products.slice(0, 3);
 
     return (
         <section className="popular">

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import "./ProductPage.css";
+import usePageTitle from "../../hooks/usePageTitle";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import CartContext from "../../context/CartContext";
@@ -63,7 +64,7 @@ const ProductPage = () => {
     const similarProducts = products.slice(0, 5);
 
 
-    /** 🔑 ВАЖНО: подключаем стрелки ПОСЛЕ init */
+
     useEffect(() => {
         if (!swiperRef.current) return;
 
@@ -73,9 +74,11 @@ const ProductPage = () => {
         swiperRef.current.navigation.update();
     }, []);
 
+    usePageTitle(product?.title);
 
 
     return (
+
         <>
             {fullscreen && (
                 <div className="fullscreen" onClick={() => setFullscreen(false)}>
@@ -89,7 +92,7 @@ const ProductPage = () => {
 
                 {/* ---------- СЛАЙДЕР ТОВАРА ---------- */}
                 <div className="product-slider">
-                    {/* кастомные стрелки */}
+
                     <button className="product-arrow-btn left" ref={prevRef}>
                         <FaArrowLeft />
                     </button>
@@ -180,7 +183,7 @@ const ProductPage = () => {
                     <h2 className="similar-title">Схожі товари</h2>
 
                     <div className="similar-slider-wrap">
-                        {/* КАСТОМНЫЕ СТРЕЛКИ */}
+
                         <button className="similar-arrow prev" ref={prevRef}>
                             <FaChevronLeft />
                         </button>

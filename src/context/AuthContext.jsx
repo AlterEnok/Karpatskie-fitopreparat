@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("user");
     };
 
-    // 🔐 универсальный гард
+
     const requireAuth = (callback) => {
         if (!user) {
             setIsAuthOpen(true);
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
         callback?.();
     };
 
-    // ✅ ОБНОВЛЕНИЕ ДАННЫХ ПРОФИЛЯ
+    //  ОБНОВЛЕНИЕ ДАННЫХ ПРОФИЛЯ
     const updateUser = (updatedData) => {
         setUser((prev) => {
             if (!prev) return prev;
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
                 isAuthOpen,
                 setIsAuthOpen,
                 requireAuth,
-                updateUser, // 👈 ВАЖНО
+                updateUser,
             }}
         >
             {children}

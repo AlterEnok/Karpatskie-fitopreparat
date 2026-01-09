@@ -41,7 +41,7 @@ function ProductCard({ product }) {
 
                 <div className="product-card__floating">
 
-                    {/* ❤️ WISHLIST */}
+                    {/* WISHLIST */}
                     <button
                         className={`product-card__icon heart ${inWishlist ? "active" : ""}`}
                         onClick={(e) => {
@@ -58,7 +58,7 @@ function ProductCard({ product }) {
                         <FaHeart />
                     </button>
 
-                    {/* 🛒 CART */}
+                    {/* CART */}
                     <button
                         className={`product-card__icon cart ${inCart ? "added" : ""}`}
                         onClick={(e) => {

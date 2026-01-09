@@ -189,7 +189,7 @@
     color: #0E7A0D;
 }
 
-/* REMOVE */
+
 .remove {
     position: absolute;
     top: -13px;
@@ -207,7 +207,7 @@
     color: #0E7A0D;
 }
 
-/* TOTAL */
+
 .total {
     border-top: 1px solid #ddd;
     padding-top: 20px;
@@ -220,7 +220,7 @@
     justify-content: space-between;
 }
 
-/* ORDER BUTTON */
+
 .order-btn {
     width: 100%;
     padding: 17px 0;
@@ -267,7 +267,7 @@
     }
 }
 
-/* ---- 768px (планшеты вертикально / большие телефоны) ---- */
+
 @media (max-width: 768px) {
     .cart-sidebar {
         width: 333px;
@@ -297,7 +297,7 @@
     }
 }
 
-/* ---- 480px (большие телефоны: iPhone Pro Max и т.п.) ---- */
+
 @media (max-width: 480px) {
     .cart-sidebar {
         width: 91%;
@@ -337,7 +337,7 @@
     }
 }
 
-/* ---- 390px (iPhone 12–15) ---- */
+
 @media (max-width: 390px) {
     .cart-sidebar {
         padding: 16px;
@@ -376,7 +376,7 @@
     }
 }
 
-/* ---- 360px (маленькие телефоны) ---- */
+
 @media (max-width: 360px) {
     .cart-header h2 {
         font-size: 26px;

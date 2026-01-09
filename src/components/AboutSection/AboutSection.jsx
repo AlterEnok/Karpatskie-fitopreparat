@@ -11,7 +11,7 @@ import company2 from "../../assets/company2.jpg";
 const AboutSection = () => {
     const [step, setStep] = useState(0);
 
-    // 🔥 добавляем состояние для анимации
+
     const [fade, setFade] = useState(true);
 
     const data = [
@@ -35,14 +35,14 @@ const AboutSection = () => {
         },
     ];
 
-    // 🔥 плавный переход
+
     const handleNext = () => {
-        setFade(false); // исчезаем
+        setFade(false);
 
         setTimeout(() => {
-            setStep((prev) => (prev === 0 ? 1 : 0)); // меняем контент
-            setFade(true); // плавно появляемся
-        }, 600); // должно совпадать с CSS
+            setStep((prev) => (prev === 0 ? 1 : 0));
+            setFade(true);
+        }, 600);
     };
 
     return (

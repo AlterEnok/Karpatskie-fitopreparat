@@ -20,7 +20,7 @@
     padding: 40px 50px;
 }
 
-/* Логотип + заголовок */
+
 .footer__header {
     display: flex;
     align-items: center;
@@ -104,15 +104,15 @@
     text-align: center;
     padding: 18px 0;
 
-    /* закругление побольше */
+
     border-radius: 30px;
 
-    /* уменьшаем ширину относительно экрана */
+
     max-width: 1380px;
     width: calc(100% - 40px);
-    /* такие же поля, как у контейнера */
+
     margin: 15px auto 0;
-    /* центрируем */
+
 }
 
 .footer__bottom a {
